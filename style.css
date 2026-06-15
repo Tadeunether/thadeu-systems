@@ -1,9 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* 1. Importação de Fontes (Sempre no topo do arquivo) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* 2. Variáveis do Projeto */
 :root {
     --primary-color: #0066ff;
     --secondary-color: #00d4ff;
@@ -15,8 +13,16 @@
     --transition: all 0.3s ease;
 }
 
-/* Fontes */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* 3. Reset Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -25,17 +31,14 @@ body {
     overflow-x: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* 4. Componentes Globais */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Navegação */
+/* 5. Navegação (Navbar) */
 .navbar {
     background: var(--white);
     padding: 1rem 0;
@@ -64,6 +67,7 @@ html {
 .nav-menu {
     display: flex;
     gap: 2rem;
+    list-style: none; /* Boa prática: remove os pontos caso use <ul> <li> */
 }
 
 .nav-menu a {
@@ -71,4 +75,9 @@ html {
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
+}
+
+/* Efeito de Hover adicionado para melhor usabilidade */
+.nav-menu a:hover {
+    color: var(--primary-color);
 }

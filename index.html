@@ -1,194 +1,85 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thadeu Systems - Soluções em Tecnologia da Informação">
     <title>Thadeu Systems | Soluções em TI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones Profissionais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonte Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- Navegação -->
-    <nav class="navbar">
-        <div class="container">
+    <header class="navbar">
+        <div class="container flex-nav">
             <div class="logo">
-                <i class="fas fa-code"></i> Thadeu Systems
+                <i class="fa-solid fa-network-wired"></i> Thadeu Systems
             </div>
-            <div class="nav-menu">
-                <a href="#home">Home</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#sobre">Sobre</a>
-                <a href="#contato">Contato</a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="container hero-content">
             <h1>Transformando Ideias em Soluções Digitais</h1>
-            <p>Tecnologia de ponta para impulsionar seu negócio</p>
-            <a href="#contato" class="btn btn-primary">Comece Agora</a>
-        </div>
-        <div class="hero-image">
-            <i class="fas fa-laptop-code"></i>
+            <p>Tecnologia de ponta e infraestrutura robusta para impulsionar e proteger o seu negócio.</p>
+            <a href="#contacto" class="btn">Comece Agora</a>
         </div>
     </section>
 
     <!-- Serviços -->
-    <section id="servicos" class="servicos">
+    <section id="servicos" class="services">
         <div class="container">
-            <h2>Nossos Serviços</h2>
-            <p class="section-subtitle">Oferecemos soluções completas em tecnologia</p>
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos soluções completas e integradas em tecnologia</p>
             
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <i class="fas fa-globe"></i>
-                    <h3>Desenvolvimento Web</h3>
-                    <p>Sites e aplicações web modernas, responsivas e otimizadas para performance.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                    <h3>Administração de Redes</h3>
+                    <p>Configuração, monitorização e gestão de infraestruturas de rede seguras, estáveis e de alta performance.</p>
                 </div>
 
-                <div class="servico-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Aplicações Mobile</h3>
-                    <p>Apps iOS e Android nativos ou multiplataforma com tecnologia de ponta.</p>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-phone-volume"></i></div>
+                    <h3>Soluções VoIP & Comunicação</h3>
+                    <p>Implementação e gestão de sistemas de telefonia IP e plataformas de comunicação unificada para empresas.</p>
                 </div>
 
-                <div class="servico-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Cloud Computing</h3>
-                    <p>Migração e gerenciamento de infraestrutura em nuvem segura e escalável.</p>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Segurança & CFTV</h3>
+                    <p>Sistemas avançados de vigilância IP, controlo de acessos biogestão e auditorias de segurança digital.</p>
                 </div>
 
-                <div class="servico-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Segurança da Informação</h3>
-                    <p>Consultoria em segurança, proteção de dados e conformidade regulatória.</p>
-                </div>
-
-                <div class="servico-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Consultoria em TI</h3>
-                    <p>Análise, planejamento e implementação de soluções tecnológicas customizadas.</p>
-                </div>
-
-                <div class="servico-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Big Data & Analytics</h3>
-                    <p>Análise de dados e inteligência artificial para decisões estratégicas.</p>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fa-solid fa-cloud"></i></div>
+                    <h3>Cloud & Virtualização</h3>
+                    <p>Migração de servidores, ambientes virtualizados e soluções de backup em nuvem escaláveis.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre -->
-    <section id="sobre" class="sobre">
-        <div class="container">
-            <div class="sobre-content">
-                <div class="sobre-text">
-                    <h2>Sobre a Thadeu Systems</h2>
-                    <p>Somos uma empresa especializada em soluções de tecnologia da informação, comprometida em transformar negócios através da inovação e excelência técnica.</p>
-                    <p>Com uma equipe de profissionais altamente qualificados, entregamos projetos que agregam valor real ao seu negócio.</p>
-                    
-                    <div class="stats">
-                        <div class="stat">
-                            <h4>50+</h4>
-                            <p>Projetos Entregues</p>
-                        </div>
-                        <div class="stat">
-                            <h4>30+</h4>
-                            <p>Clientes Satisfeitos</p>
-                        </div>
-                        <div class="stat">
-                            <h4>10+</h4>
-                            <p>Anos de Experiência</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="sobre-image">
-                    <i class="fas fa-rocket"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="contato">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <p class="section-subtitle">Vamos conversar sobre seu projeto</p>
-
-            <div class="contato-content">
-                <div class="contato-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Endereço</h4>
-                            <p>São Paulo, SP - Brasil</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p>+55 (11) 9999-9999</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>contato@thadeu-systems.com</p>
-                        </div>
-                    </div>
-
-                    <div class="redes-sociais">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-
-                <form class="contato-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Seu Nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Seu Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Assunto" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Thadeu Systems. Todos os direitos reservados.</p>
-            <div class="footer-links">
-                <a href="#home">Privacidade</a>
-                <a href="#home">Termos de Uso</a>
-                <a href="#home">Sitemap</a>
-            </div>
+            <p>&copy; 2026 Thadeu Systems. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>

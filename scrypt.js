@@ -1,89 +1,82 @@
-// Menu Mobile
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// Aguarda que todo o DOM (HTML) esteja carregado antes de executar o script
+document.addEventListener('DOMContentLoaded', () => {
 
-hamburger.addEventListener('click', () => {
-    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    hamburger.classList.toggle('active');
-});
-
-// Fechar menu ao clicar em um link
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.style.display = 'none';
-        hamburger.classList.remove('active');
-    });
-});
-
-// Formúlário de Contato
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    // ==========================================================================
+    // 1. Efeito Dinâmico no Cabeçalho ao fazer Scroll
+    // ==========================================================================
+    const header = document.querySelector('header');
     
-    // Aqui você pode adicionar lógica para enviar o formulário
-    // Por enquanto, vamos mostrar uma mensagem de sucesso
-    alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
-    this.reset();
-});
-
-// Scroll suave para navegação
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.15)';
+            header.style.padding = '15px 10px'; // Diminui ligeiramente a altura
+        } else {
+            header.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
+            header.style.padding = '20px 10px'; // Volta ao tamanho original
         }
     });
-});
 
-// Animação ao scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+    // ==========================================================================
+    // 2. Scroll Suave para as Secções (Links do Menu)
+    // ==========================================================================
+    const linksMenu = document.querySelectorAll('nav ul li a, .btn');
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-        }
+    linksMenu.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            
+            // Verifica se o link é uma âncora interna (começa com #)
+            if (targetId.startsWith('#')) {
+                e.preventDefault(); // Evita o comportamento padrão de salto abrupto
+                
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    // Calcula a posição descontando a altura do header fixo
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
     });
-}, observerOptions);
 
-// Observar elementos
-document.querySelectorAll('.servico-card, .info-item').forEach(el => {
-    observer.observe(el);
-});
+    // ==========================================================================
+    // 3. Validação e Simulação de Envio do Formulário de Contacto
+    // ==========================================================================
+    const formContacto = document.querySelector('.contact-container form');
 
-// Adicionar CSS para animação
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .servico-card, .info-item {
-        opacity: 0;
-    }
-`;
-document.head.appendChild(style);
+    if (formContacto) {
+        formContacto.addEventListener('submit', (e) => {
+            e.preventDefault(); // Impede o recarregamento da página
 
-// Efeito de scroll na navbar
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
-    } else {
-        navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            // Captura os dados dos campos
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const interesse = document.getElementById('interesse').value;
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            // Validação simples de segurança
+            if (nome === '' || email === '' || mensagem === '') {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            // Simulação de envio (aqui ligarias à tua API ou Backend futuramente)
+            console.log('--- Novo Contacto Recebido ---');
+            console.log(`Nome: ${nome}`);
+            console.log(`E-mail: ${email}`);
+            console.log(`Interesse: ${interesse}`);
+            console.log(`Mensagem: ${mensagem}`);
+
+            // Exibe mensagem de sucesso ao utilizador
+            alert(`Obrigado pelo seu contacto, ${nome}!\nA equipa da Thadeu Systems responderá ao seu e-mail (${email}) o mais breve possível.`);
+
+            // Limpa o formulário após o envio bem-sucedido
+            formContacto.reset();
+        });
     }
 });

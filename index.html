@@ -3,83 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thadeu Systems | Soluções em TI</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Ícones Profissionais -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Fonte Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>THADEU SYSTEMS - Soluções Tecnológicas & Consultoria</title>
+    <style>
+        /* Reset e Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: #0d233a; /* Azul corporativo escuro */
+            color: #fff;
+            padding: 20px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .logo span {
+            color: #fff;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* Secção Hero (Banner Principal) */
+        .hero {
+            background: linear-gradient(rgba(13, 35, 58, 0.85), rgba(13, 35, 58, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Secção de Serviços */
+        .services {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .services h2 {
+            margin-bottom: 40px;
+            color: #0d233a;
+            position: relative;
+        }
+        .services h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #3498db;
+            margin: 10px auto 0 auto;
+        }
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            margin-bottom: 15px;
+            color: #0d233a;
+        }
+
+        /* Secção Contacto / Inscrição */
+        .contact {
+            background-color: #ecf0f1;
+            padding: 60px 20px;
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0d233a;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            width: 100%;
+            background-color: #0d233a;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .form-group button:hover {
+            background-color: #1a3c61;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0d233a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Navegação -->
-    <header class="navbar">
-        <div class="container flex-nav">
-            <div class="logo">
-                <i class="fa-solid fa-network-wired"></i> Thadeu Systems
-            </div>
+    <header>
+        <div class="nav-container">
+            <div class="logo">TIS<span>.</span></div>
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Soluções</a></li>
+                    <li><a href="#academia">Academia</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>Transformando Ideias em Soluções Digitais</h1>
-            <p>Tecnologia de ponta e infraestrutura robusta para impulsionar e proteger o seu negócio.</p>
-            <a href="#contacto" class="btn">Comece Agora</a>
-        </div>
+    <section class="hero" id="home">
+        <h1>Inovação e Tecnologia com ADN Angolano</h1>
+        <p>Aceleramos a transformação digital de grandes empresas e do sector público através de consultoria especializada e integração de sistemas robustos.</p>
+        <a href="#contacto" class="btn">Falar com um Especialista</a>
     </section>
 
-    <!-- Serviços -->
-    <section id="servicos" class="services">
-        <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Oferecemos soluções completas e integradas em tecnologia</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-server"></i></div>
-                    <h3>Administração de Redes</h3>
-                    <p>Configuração, monitorização e gestão de infraestruturas de rede seguras, estáveis e de alta performance.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-phone-volume"></i></div>
-                    <h3>Soluções VoIP & Comunicação</h3>
-                    <p>Implementação e gestão de sistemas de telefonia IP e plataformas de comunicação unificada para empresas.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3>Segurança & CFTV</h3>
-                    <p>Sistemas avançados de vigilância IP, controlo de acessos biogestão e auditorias de segurança digital.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="icon-box"><i class="fa-solid fa-cloud"></i></div>
-                    <h3>Cloud & Virtualização</h3>
-                    <p>Migração de servidores, ambientes virtualizados e soluções de backup em nuvem escaláveis.</p>
-                </div>
+    <section class="services" id="servicos">
+        <h2>As Nossas Soluções</h2>
+        <div class="grid-services">
+            <div class="card">
+                <h3>Transformação Digital</h3>
+                <p>Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
+            </div>
+            <div class="card">
+                <h3>Integração de Sistemas</h3>
+                <p>Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
+            </div>
+            <div class="card" id="academia">
+                <h3>Academia TIS</h3>
+                <p>Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
             </div>
         </div>
     </section>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Thadeu Systems. Todos os direitos reservados.</p>
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <h2>Entre em Contacto</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail Corporativo</label>
+                    <input type="email" id="email" name="email" placeholder="Ex: empresa@empresa.ao" required>
+                </div>
+                <div class="form-group">
+                    <label for="interesse">Área de Interesse</label>
+                    <select id="interesse" name="interesse">
+                        <option value="consultoria">Consultoria de TI</option>
+                        <option value="integracao">Integração de Sistemas</option>
+                        <option value="academia">Cursos e Certificações (Academia TIS)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos ajudar a sua organização?" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Enviar Mensagem</button>
+                </div>
+            </form>
         </div>
-    </footer>
+    </section>
 
-</body>
-</html>
+    <footer>
+        <p>&copy; 2026 THADEU SYSTEMS. Todos os direitos reservados. Luanda, Angola.</p>

@@ -372,9 +372,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos ajudar a sua organização?" required></textarea>
-                </div>
+    <button type="submit" id="btnEnviar">
+        <span id="btnTexto">Enviar Mensagem</span>
+        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+    </button>
+</div>
                 <div class="form-group">
                     <button type="submit">Enviar Mensagem</button>
                 </div>
@@ -386,6 +388,25 @@
         <p>&copy; 2026 THADEU SYSTEMS. Todos os direitos reservados. Luanda, Angola.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">      
+    </script>
+    <script>
+    // Captura o formulário e o botão
+    const formulario = document.querySelector('form');
+    const botao = document.getElementById('btnEnviar');
+    const textoBotao = document.getElementById('btnTexto');
+    const spinnerBotao = document.getElementById('btnSpinner');
+
+    formulario.addEventListener('submit', function() {
+        // 1. Desativa o botão para evitar múltiplos envios involuntários
+        botao.disabled = true;
+        
+        // 2. Muda o texto para dar feedback imediato
+        textoBotao.textContent = "A enviar... ";
+        
+        // 3. Remove a classe 'd-none' do Bootstrap para fazer o círculo de loading aparecer e rodar
+        spinnerBotao.classList.remove('d-none');
+    });
+</script>
 </body>
 </html>

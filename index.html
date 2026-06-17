@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THADEU SYSTEMS - Soluções Tecnológicas & Consultoria</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
+    
     <style>
         /* Reset e Estilos Gerais */
         * {
@@ -186,48 +190,167 @@
             padding: 20px;
             font-size: 14px;
         }
+        /* ==========================================
+   EFEITO DE BRILHO NEON ATUALIZADO 🚀
+   ========================================== */
+
+/* Quando o slide roda e fica ativo, o card com a classe 'card-destaque' brilha */
+.carousel-item.active .card-destaque {
+    background-color: #ffffff !important;
+    border: 1px solid #0d233a !important; /* Usa o teu azul escuro original */
+    box-shadow: 0 15px 35px rgba(13, 35, 58, 0.18) !important; /* Sombra realista e corporativa */
+    transform: scale(1.03) !important;
+    z-index: 5;
+    opacity: 1 !important;
+}
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">THADEU SYSTEMS<span>.</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#servicos">Soluções</a></li>
-                    <li><a href="#academia">Academia</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+   <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary fs-4" href="#">THADEU SYSTEMS<span class="text-white">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacao">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuNavegacao">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link text-white" href="#home">Início</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#servicos">Soluções</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#academia">Academia</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
+</header>
 
     <section class="hero" id="home">
-        <h1>Inovação e Tecnologia </h1>
+        <h1>Inovação e Tecnologia</h1>
         <p>Oferecemos soluções completas e integradas em tecnologia.</p>
         <a href="#contacto" class="btn">Falar com um Especialista</a>
     </section>
 
-    <section class="services" id="servicos">
-        <h2>As Nossas Soluções</h2>
-        <div class="grid-services">
-            <div class="card">
-                <h3>Transformação Digital</h3>
-                <p>Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
+   <section class="services" id="servicos">
+    <h2 class="text-center mb-5">As Nossas Soluções</h2>
+    
+    <!-- Carrossel de Múltiplos Itens com rotação automática -->
+    <div id="carouselServicos" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            
+            <!-- GRUPO 1: Transformação Digital em Destaque -->
+            <div class="carousel-item active" data-bs-interval="4000">
+                <div class="container">
+                    <div class="row g-4 align-items-center py-3">
+                        <div class="col-md-4">
+                            <!-- Cartão em Destaque (Ganha o Brilho Automático) -->
+                            <div class="card shadow-sm h-100 card-destaque">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold">Transformação Digital</h3>
+                                    <p class="card-text text-muted">Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <!-- Cartão Secundário Lateral -->
+                            <div class="card shadow-sm h-100 opacity-75">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold text-secondary">Integração de Sistemas</h3>
+                                    <p class="card-text text-muted">Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <!-- Cartão Secundário Lateral -->
+                            <div class="card shadow-sm h-100 opacity-50">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold text-secondary">Academia THADEU SYSTEMS</h3>
+                                    <p class="card-text text-muted">Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Integração de Sistemas</h3>
-                <p>Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
-            </div>
-            <div class="card" id="academia">
-                <h3>Academia THADEU SYSTEMS</h3>
-                <p>Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
-            </div>
-        </div>
-    </section>
 
+            <!-- GRUPO 2: Integração de Sistemas em Destaque -->
+            <div class="carousel-item" data-bs-interval="4000">
+                <div class="container">
+                    <div class="row g-4 align-items-center py-3">
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="card shadow-sm h-100 opacity-50">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold text-secondary">Transformação Digital</h3>
+                                    <p class="card-text text-muted">Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Cartão em Destaque (Ganha o Brilho Automático) -->
+                            <div class="card shadow-sm h-100 card-destaque">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold">Integração de Sistemas</h3>
+                                    <p class="card-text text-muted">Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="card shadow-sm h-100 opacity-75">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold text-secondary">Academia THADEU SYSTEMS</h3>
+                                    <p class="card-text text-muted">Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRUPO 3: Academia THADEU SYSTEMS em Destaque -->
+            <div class="carousel-item" data-bs-interval="4000">
+                <div class="container">
+                    <div class="row g-4 align-items-center py-3">
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="card shadow-sm h-100 opacity-75">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold text-secondary">Transformação Digital</h3>
+                                    <p class="card-text text-muted">Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-block">
+                            <div class="card shadow-sm h-100 opacity-50">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold text-secondary">Integração de Sistemas</h3>
+                                    <p class="card-text text-muted">Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" id="academia">
+                            <!-- Cartão em Destaque (Ganha o Brilho Automático) -->
+                            <div class="card shadow-sm h-100 card-destaque">
+                                <div class="card-body p-4">
+                                    <h3 class="h5 fw-bold">Academia THADEU SYSTEMS</h3>
+                                    <p class="card-text text-muted">Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botões de Navegação Lateral -->
+        <button class="carousel-control-prev justify-content-start w-auto" type="button" data-bs-target="#carouselServicos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next justify-content-end w-auto" type="button" data-bs-target="#carouselServicos" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+            <span class="visually-hidden">Seguinte</span>
+        </button>
+    </div>
+</section>
     <section class="contact" id="contacto">
         <div class="contact-container">
             <h2>Entre em Contacto</h2>
@@ -245,7 +368,7 @@
                     <select id="interesse" name="interesse">
                         <option value="consultoria">Consultoria de TI</option>
                         <option value="integracao">Integração de Sistemas</option>
-                        <option value="academia">Cursos e Certificações (Academia THADEU SISTEMS)</option>
+                        <option value="academia">Cursos e Certificações (Academia THADEU SYSTEMS)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -261,3 +384,8 @@
 
     <footer>
         <p>&copy; 2026 THADEU SYSTEMS. Todos os direitos reservados. Luanda, Angola.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,422 +1,782 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THADEU SYSTEMS - Soluções Tecnológicas & Consultoria</title>
-    <link rel="icon" href="tadeulogo-48x48.png" sizes="48x48" type="image/png">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <title>Thadeu Systems | Thadeu Systems Visual Identity</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Reset e Estilos Gerais */
+        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Cabeçalho e Navegação */
-        header {
-            background-color: #0d233a; /* Azul corporativo escuro */
-            color: #fff;
-            padding: 20px 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        :root {
+            --bg-dark-absolute: #050508;
+            --bg-dark-card: rgba(15, 22, 36, 0.45);
+            --bg-dark-card-hover: rgba(15, 22, 36, 0.75);
+            
+            /* Paleta Azul Premium */
+            --neon-blue: #0072ff;
+            --neon-purple: #00c6ff;
+            --neon-glow: rgba(0, 114, 255, 0.4);
+            
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #718096;
+            --border-glow: rgba(0, 114, 255, 0.15);
+            --border-glow-active: rgba(0, 114, 255, 0.6);
         }
-        .nav-container {
+
+        body {
+            background-color: var(--bg-dark-absolute);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 114, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 198, 255, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Container helper */
+        .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Header / Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 8, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+        }
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .logo {
-             width: 150px;
-             height: auto;
-            font-size: 32px;
-            font-weight: bold;
-            color: #3498db;
-                }
-        .logo span {
-            color: #fff;
-        }
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        nav ul li {
-            margin-left: 20px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        nav ul li a:hover {
-            color: #3498db;
-        }
-
-        /* Secção Hero (Banner Principal) */
-        .hero {
-            background: linear-gradient(rgba(13, 35, 58, 0.85), rgba(13, 35, 58, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-        }
-        .btn {
-            background-color: #3498db;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #2980b9;
-        }
-
-        /* Secção de Serviços */
-        .services {
-            padding: 80px 20px;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
         }
-        .services h2 {
-            margin-bottom: 40px;
-            color: #0d233a;
+
+        /* Estilo do Logo com Imagem */
+        .logo-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 12px rgba(0, 114, 255, 0.35));
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo-link:hover .brand-logo {
+            transform: scale(1.03);
+            filter: drop-shadow(0 0 18px rgba(0, 114, 255, 0.6));
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 8px var(--neon-glow);
+        }
+
+        .nav-btn {
+            border: 1.5px solid var(--neon-blue);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--neon-blue) !important;
+            box-shadow: 0 0 10px rgba(0, 114, 255, 0.1);
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-btn:hover {
+            background: var(--neon-blue);
+            color: var(--bg-dark-absolute) !important;
+            box-shadow: 0 0 20px var(--neon-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px 0;
+            text-align: center;
             position: relative;
         }
-        .services h2::after {
+
+        .hero::before {
             content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: #3498db;
-            margin: 10px auto 0 auto;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: var(--neon-blue);
+            filter: blur(150px);
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
         }
-        .grid-services {
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 114, 255, 0.1);
+            border: 1px solid rgba(0, 114, 255, 0.3);
+            color: var(--neon-purple);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(0, 114, 255, 0.1);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 50%, #718096 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 114, 255, 0.25);
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 114, 255, 0.3);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 114, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 114, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: var(--neon-blue);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card h3 {
-            margin-bottom: 15px;
-            color: #0d233a;
+
+        .service-card {
+            background: var(--bg-dark-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        /* Secção Contacto / Inscrição */
-        .contact {
-            background-color: #ecf0f1;
-            padding: 60px 20px;
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            opacity: 0;
+            transition: all 0.3s ease;
         }
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-dark-card-hover);
+            border-color: var(--border-glow-active);
+            box-shadow: 0 10px 30px rgba(0, 114, 255, 0.15);
         }
-        .contact h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #0d233a;
+
+        .service-card:hover::before {
+            opacity: 1;
         }
-        .form-group {
+
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 114, 255, 0.08);
+            border: 1.5px solid rgba(0, 114, 255, 0.25);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-container {
+            background: rgba(0, 114, 255, 0.15);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 114, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Info Section / Brand Synergy */
+        .tech-showcase {
+            padding: 100px 0;
+            background: rgba(10, 10, 15, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .showcase-flex {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .showcase-content, .showcase-visual {
+            flex: 1;
+        }
+
+        .showcase-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            font-weight: 800;
         }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
+
+        .showcase-content h2 span {
+            color: var(--neon-blue);
+        }
+
+        .showcase-content p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-primary);
             font-weight: 500;
         }
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .form-group button {
-            width: 100%;
-            background-color: #0d233a;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
+
+        .spec-list li::before {
+            content: "✓";
+            color: var(--neon-blue);
             font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .form-group button:hover {
-            background-color: #1a3c61;
+            text-shadow: 0 0 8px var(--neon-glow);
         }
 
-        /* Rodapé */
+        .showcase-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .glowing-globe {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 114, 255, 0.15) 0%, rgba(0, 198, 255, 0.02) 70%, transparent 100%);
+            border: 1px dashed rgba(0, 114, 255, 0.3);
+            position: relative;
+            animation: rotateGlobe 20s linear infinite;
+        }
+
+        .glowing-globe::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 114, 255, 0.15);
+        }
+
+        .globe-inner {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
+            filter: blur(40px);
+            animation: pulseGlobe 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes rotateGlobe {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulseGlobe {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.9; }
+        }
+
+        /* Footer */
         footer {
-            background-color: #0d233a;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
+            padding: 80px 0 40px 0;
+            background: #020204;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        /* ==========================================
-   EFEITO DE BRILHO NEON ATUALIZADO 🚀
-   ========================================== */
 
-/* Quando o slide roda e fica ativo, o card com a classe 'card-destaque' brilha */
-.carousel-item.active .card-destaque {
-    background-color: #ffffff !important;
-    border: 1px solid #0d233a !important; /* Usa o teu azul escuro original */
-    box-shadow: 0 15px 35px rgba(13, 35, 58, 0.18) !important; /* Sombra realista e corporativa */
-    transform: scale(1.03) !important;
-    z-index: 5;
-    opacity: 1 !important;
-}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 15px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--neon-blue);
+            padding-left: 5px;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .showcase-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .spec-list li {
+                justify-content: center;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 12px 0;
+            }
+            nav ul {
+                display: none;
+            }
+            .brand-logo {
+                height: 38px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
-  <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3">
-    <div class="container">
-        <a class="navbar-brand fw-bold text-primary fs-4 d-flex align-items-center" href="#">
-            <img src="tadeulogo.png" alt="Logo" height="35" class="me-2">
-           <span class="text-white">.</span>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacao" aria-controls="menuNavegacao" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="menuNavegacao">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link text-white" href="#home">Início</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#servicos">Soluções</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#academia">Academia</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
-            </ul>
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo-link">
+                <img src="TSlogo.png" alt="Thadeu Systems Logo" class="brand-logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#sobre">Inovação</a></li>
+                    <li><a href="#ecossistema">Thadeu Systems Grid</a></li>
+                    <li><a href="#contacto" class="nav-btn">Conectar</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-</header>
+    </header>
 
-    <section class="hero" id="home">
-        <h1>Inovação e Tecnologia</h1>
-        <p>Oferecemos soluções completas e integradas em tecnologia.</p>
-        <a href="#contacto" class="btn">Falar com um Especialista</a>
-    </section>
-
-   <section class="services" id="servicos">
-    <h2 class="text-center mb-5">As Nossas Soluções</h2>
-    
-   <div id="carouselServicos" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        
-        <div class="carousel-item active" data-bs-interval="4000">
-            <div class="container">
-                <div class="row g-4 align-items-center py-3">
-                    <div class="col-md-4">
-                        <div class="card shadow-sm h-100 card-destaque overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold">Transformação Digital</h3>
-                                <p class="card-text text-muted">Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Transformação Digital" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-none d-md-block">
-                        <div class="card shadow-sm h-100 opacity-75 overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold text-secondary">Integração de Sistemas</h3>
-                                <p class="card-text text-muted">Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Integração de Sistemas" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-none d-md-block">
-                        <div class="card shadow-sm h-100 opacity-50 overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold text-secondary">Academia THADEU SYSTEMS</h3>
-                                <p class="card-text text-muted">Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Academia" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">Thadeu Systems Visual Architecture Enabled</div>
+            <h1>Engineered for the Future.<br><span>Thadeu Systems</span></h1>
+            <p>Infraestrutura de tecnologia disruptiva, desenvolvimento de sistemas robustos e soluções digitais premium com o ecossistema de alto desempenho. Oferecemos soluções completas e integradas em tecnologia.</p>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn-primary">Iniciar Projeto</a>
+                <a href="#solucoes" class="btn-secondary">Explorar Grid</a>
             </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="4000">
-            <div class="container">
-                <div class="row g-4 align-items-center py-3">
-                    <div class="col-md-4 d-none d-md-block">
-                        <div class="card shadow-sm h-100 opacity-50 overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold text-secondary">Transformação Digital</h3>
-                                <p class="card-text text-muted">Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Transformação Digital" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card shadow-sm h-100 card-destaque overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold">Integração de Sistemas</h3>
-                                <p class="card-text text-muted">Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Integração de Sistemas" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-none d-md-block">
-                        <div class="card shadow-sm h-100 opacity-75 overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold text-secondary">Academia THADEU SYSTEMS</h3>
-                                <p class="card-text text-muted">Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Academia" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="carousel-item" data-bs-interval="4000">
-            <div class="container">
-                <div class="row g-4 align-items-center py-3">
-                    <div class="col-md-4 d-none d-md-block">
-                        <div class="card shadow-sm h-100 opacity-75 overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold text-secondary">Transformação Digital</h3>
-                                <p class="card-text text-muted">Consultoria estratégica e modernização de infraestruturas tecnológicas para otimizar os processos do seu negócio.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Transformação Digital" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-none d-md-block">
-                        <div class="card shadow-sm h-100 opacity-50 overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold text-secondary">Integração de Sistemas</h3>
-                                <p class="card-text text-muted">Unimos soluções complexas de hardware e software dos maiores fabricantes mundiais para que funcionem em perfeita harmonia.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Integração de Sistemas" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="col-md-4" id="academia">
-                        <div class="card shadow-sm h-100 card-destaque overflow-hidden">
-                            <div class="card-body p-4">
-                                <h3 class="h5 fw-bold">Academia THADEU SYSTEMS</h3>
-                                <p class="card-text text-muted">Educação corporativa de excelência e certificações internacionais para capacitar e qualificar os talentos locais.</p>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" class="card-img-bottom" alt="Academia" style="height: 160px; object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <button class="carousel-control-prev justify-content-start w-auto" type="button" data-bs-target="#carouselServicos" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next justify-content-end w-auto" type="button" data-bs-target="#carouselServicos" data-bs-slide="next">
-        <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
-        <span class="visually-hidden">Seguinte</span>
-    </button>
-</div>
-
-</section>
-
-<section class="contact" id="contacto">
-    <div class="contact-container">
-        <h2>Entre em Contacto</h2>
-        <form action="https://formspree.io/f/meewwglq" method="POST">
-            <div class="form-group">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail Corporativo</label>
-                <input type="email" id="email" name="email" placeholder="Ex: empresa@empresa.ao" required>
-            </div>
-            <div class="form-group">
-                <label for="interesse">Área de Interesse</label>
-                <select id="interesse" name="interesse">
-                    <option value="consultoria">Consultoria de TI</option>
-                    <option value="integracao">Integração de Sistemas</option>
-                    <option value="academia">Cursos e Certificações (Academia THADEU SYSTEMS)</option>
-                </select>
-            </div>
-            ```
-               <div class="form-group">
-                    <label for="mensagem">Mensagem</label>
-                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos ajudar a sua organização?" required></textarea>
-                <div class="form-group">
-    <button type="submit" id="btnEnviar">
-        <span id="btnTexto">Enviar Mensagem</span>
-        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-    </button>
-</div>
-            </form>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 THADEU SYSTEMS. Todos os direitos reservados. Luanda, Angola.</p>
+    <!-- Services Grid -->
+    <section class="services" id="solucoes">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos <span>Serviços</span></h2>
+                <p>Estrutura computacional, segurança e telecomunicações de altíssima performance para impulsionar e escalar o seu ecossistema digital.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3>Engine Solutions</h3>
+                    <p>Desenvolvimento personalizado de softwares de alta complexidade com arquitetura de microsserviços ultra escaláveis.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Cyber Security</h3>
+                    <p>Proteção de ativos digitais críticos utilizando criptografia de nível militar e protocolos de auditoria inteligentes.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                    </div>
+                    <h3>Cloud Architecture</h3>
+                    <p>Estruturação e migração para servidores na nuvem otimizados com altíssima disponibilidade e redundância.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    </div>
+                    <h3>CCTV Surveillance</h3>
+                    <p>Projetos e instalação de sistemas de video vigilância IP avançados, monitorização remota e inteligência analítica de vídeo.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <h3>VoIP & Telephony</h3>
+                    <p>Implementação de centrais telefónicas IP (PBX), comunicação unificada em nuvem e infraestrutura de voz sobre IP.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04c.054-.195.112-.39.175-.583a10.004 10.004 0 0 1 12.583-6.2m-13.88 1.488a10.024 10.024 0 0 1 1.055-3.32m2.844-3.666a10.012 10.012 0 0 1 10.463-.996M12 2a10.002 10.002 0 0 1 9.38 6.5"></path></svg>
+                    </div>
+                    <h3>Biometric Access Control</h3>
+                    <p>Sistemas de controlo de acessos por biometria e reconhecimento facial com integração a software de gestão de assiduidade.</p>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3>Domain Registration & Consulting</h3>
+                    <p>Consultoria estratégica e gestão de registos de domínios nacionais e internacionais (como .ao, .com, .net) alinhados à identidade da marca.</p>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <h3>Corporate Email Infrastructure</h3>
+                    <p>Configuração e gestão de correio eletrónico profissional customizado com o seu domínio, alta entregabilidade e anti-spam avançado.</p>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h3>Advanced DNS Management</h3>
+                    <p>Gestão técnica de registos DNS (A, CNAME, MX, TXT, SPF, DKIM) para máxima performance de roteamento e segurança de tráfego.</p>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <h3>SSL Security Certificates</h3>
+                    <p>Implementação e renovação de certificados SSL/TLS avançados para criptografia de dados e blindagem contra ataques de interceptação.</p>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3>Web Presence & Sites</h3>
+                    <p>Criação de websites corporativos modernos, responsivos e otimizados para conversão (SEO), garantindo forte presença digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="tech-showcase" id="sobre">
+        <div class="container">
+            <div class="showcase-flex">
+                <div class="showcase-content">
+                    <h2>A Sinergia <span>Thadeu & Orayon</span></h2>
+                    <p>Unimos a capacidade técnica robusta de engenharia de software da Thadeu Systems com a refinada identidade visual e velocidade operacional inspirada no ecossistema Orayon.</p>
+                    <ul class="spec-list">
+                        <li>Interfaces fluidas baseadas em dark mode premium</li>
+                        <li>Desempenho otimizado para carregamentos em milissegundos</li>
+                        <li>Identidade corporativa futurista que inspira segurança e inovação</li>
+                    </ul>
+                </div>
+                <div class="showcase-visual">
+                    <div class="glowing-globe">
+                        <div class="globe-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo-link">
+                        <img src="TSlogo.png" alt="Thadeu Systems Logo" class="brand-logo">
+                    </a>
+                    <p>Soluções integradas de engenharia de software, infraestrutura de redes e ecossistemas digitais de alta performance.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Soluções</h4>
+                    <ul>
+                        <li><a href="#solucoes">Engine Solutions</a></li>
+                        <li><a href="#solucoes">Cyber Security</a></li>
+                        <li><a href="#solucoes">Cloud Architecture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Inovação</a></li>
+                        <li><a href="#sobre">Sinergia Orayon</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Conectar</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <a href="mailto:geral@thadeusystems.it.ao">geral@thadeusystems.it.ao</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <a href="tel:+244946991049">+244 946 991 049</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Luanda, Angola</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thadeu Systems. Todos os direitos reservados. Engineered with Precision.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">      
-    </script>
-    <script>
-    // Captura o formulário e o botão
-    const formulario = document.querySelector('form');
-    const botao = document.getElementById('btnEnviar');
-    const textoBotao = document.getElementById('btnTexto');
-    const spinnerBotao = document.getElementById('btnSpinner');
-
-    formulario.addEventListener('submit', function() {
-        // 1. Desativa o botão para evitar múltiplos envios involuntários
-        botao.disabled = true;
-        
-        // 2. Muda o texto para dar feedback imediato
-        textoBotao.textContent = "A enviar... ";
-        
-        // 3. Remove a classe 'd-none' do Bootstrap para fazer o círculo de loading aparecer e rodar
-        spinnerBotao.classList.remove('d-none');
-    });
-</script>
 </body>
 </html>

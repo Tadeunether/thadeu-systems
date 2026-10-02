@@ -1,229 +1,262 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
+<!-- HEADER / NAVBAR -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <img src="TSlogo.png" alt="Thadeu Systems - Logótipo" class="logo-img">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Porquê Nós</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#contacto" class="nav-contact">Contactar</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thadeu Systems | Thadeu Systems Visual Identity</title>
+
+    <title>Thadeu Systems | Tecnologia, Segurança e Infraestrutura Digital</title>
+
+    <meta name="description"
+          content="Thadeu Systems - Soluções empresariais em desenvolvimento de software, cloud, cibersegurança, CCTV, redes, VoIP, controlo de acessos, websites, domínios e infraestrutura digital em Angola.">
+
+    <meta name="keywords"
+          content="Thadeu Systems, tecnologia Angola, informática Angola, desenvolvimento software Angola, CCTV Angola, cloud Angola, cibersegurança Angola, websites Angola, VoIP Angola">
+
+    <meta name="author" content="Thadeu Systems">
+    <meta name="theme-color" content="#050508">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thadeu Systems">
+    <meta property="og:description"
+          content="Engenharia, infraestrutura e soluções digitais para empresas que querem crescer com tecnologia.">
+    <meta property="og:type" content="website">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-  
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo-link">
-                <img src="TSlogo.png" alt="Thadeu Systems Logo" class="brand-logo">
+    <div class="grid-background"></div>
+
+    <!-- HEADER / NAVBAR -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <span class="gradient-text" style="font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.4rem;">THADEU SYSTEMS</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="#solucoes">Soluções</a></li>
-                    <li><a href="#sobre">Inovação</a></li>
-                    <li><a href="#ecossistema">Thadeu Systems Grid</a></li>
-                    <li><a href="#contacto" class="nav-btn">Conectar</a></li>
-                </ul>
-            </nav>
+
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Porquê Nós</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#contacto" class="nav-contact">Contactar</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="badge">Thadeu Systems Visual Architecture Enabled</div>
-            <h1>Engineered for the Future.<br><span>Thadeu Systems</span></h1>
-            <p>Infraestrutura de tecnologia disruptiva, desenvolvimento de sistemas robustos e soluções digitais premium com o ecossistema de alto desempenho. Oferecemos soluções completas e integradas em tecnologia.</p>
-            <div class="hero-btns">
-                <a href="#contacto" class="btn-primary">Iniciar Projeto</a>
-                <a href="#solucoes" class="btn-secondary">Explorar Grid</a>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="glow hero-glow-1"></div>
+            <div class="glow hero-glow-2"></div>
+
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="status-dot"></span>
+                        Soluções de Tecnologia & Infraestrutura
+                    </div>
+                    <h1>Inovação Digital & <span class="gradient-text">Segurança</span> para a sua Empresa</h1>
+                    <p class="hero-description">
+                        Transformamos organizações através de desenvolvimento de software, infraestruturas de rede robustas, cibersegurança e sistemas de vigilância avançados em Angola.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary">Solicitar Proposta</a>
+                        <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="trust-item">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Disponibilidade 24/7
+                        </div>
+                        <div class="trust-item">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Suporte Especializado
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="technology-core">
+                        <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+                        <div class="orbit orbit-2"></div>
+                        <div class="orbit orbit-3"></div>
+                        <div class="core">
+                            <span class="core-content">TS</span>
+                        </div>
+                    </div>
+                    <div class="floating-card fc-1">Cybersecurity</div>
+                    <div class="floating-card fc-2">Cloud & Networks</div>
+                    <div class="floating-card fc-3">Software Dev</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Grid -->
-    <section class="services" id="solucoes">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nossos <span>Serviços</span></h2>
-                <p>Estrutura computacional, segurança e telecomunicações de altíssima performance para impulsionar e escalar o seu ecossistema digital.</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                    </div>
-                    <h3>Engine Solutions</h3>
-                    <p>Desenvolvimento personalizado de softwares de alta complexidade com arquitetura de microsserviços ultra escaláveis.</p>
+        <!-- STATS -->
+        <div class="container stats-wrapper">
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">Compromisso</span>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <h3>Cyber Security</h3>
-                    <p>Proteção de ativos digitais críticos utilizando criptografia de nível militar e protocolos de auditoria inteligentes.</p>
+                <div class="stat">
+                    <span class="stat-value">24/7</span>
+                    <span class="stat-label">Monitoramento</span>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-                    </div>
-                    <h3>Cloud Architecture</h3>
-                    <p>Estruturação e migração para servidores na nuvem otimizados com altíssima disponibilidade e redundância.</p>
+                <div class="stat">
+                    <span class="stat-value">+10</span>
+                    <span class="stat-label">Áreas de Atuação</span>
                 </div>
-
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                    </div>
-                    <h3>CCTV Surveillance</h3>
-                    <p>Projetos e instalação de sistemas de video vigilância IP avançados, monitorização remota e inteligência analítica de vídeo.</p>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    </div>
-                    <h3>VoIP & Telephony</h3>
-                    <p>Implementação de centrais telefónicas IP (PBX), comunicação unificada em nuvem e infraestrutura de voz sobre IP.</p>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04c.054-.195.112-.39.175-.583a10.004 10.004 0 0 1 12.583-6.2m-13.88 1.488a10.024 10.024 0 0 1 1.055-3.32m2.844-3.666a10.012 10.012 0 0 1 10.463-.996M12 2a10.002 10.002 0 0 1 9.38 6.5"></path></svg>
-                    </div>
-                    <h3>Biometric Access Control</h3>
-                    <p>Sistemas de controlo de acessos por biometria e reconhecimento facial com integração a software de gestão de assiduidade.</p>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                    </div>
-                    <h3>Domain Registration & Consulting</h3>
-                    <p>Consultoria estratégica e gestão de registos de domínios nacionais e internacionais (como .ao, .com, .net) alinhados à identidade da marca.</p>
-                </div>
-
-                <!-- Service 8 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    </div>
-                    <h3>Corporate Email Infrastructure</h3>
-                    <p>Configuração e gestão de correio eletrónico profissional customizado com o seu domínio, alta entregabilidade e anti-spam avançado.</p>
-                </div>
-
-                <!-- Service 9 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                    </div>
-                    <h3>Advanced DNS Management</h3>
-                    <p>Gestão técnica de registos DNS (A, CNAME, MX, TXT, SPF, DKIM) para máxima performance de roteamento e segurança de tráfego.</p>
-                </div>
-
-                <!-- Service 10 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    </div>
-                    <h3>SSL Security Certificates</h3>
-                    <p>Implementação e renovação de certificados SSL/TLS avançados para criptografia de dados e blindagem contra ataques de interceptação.</p>
-                </div>
-
-                <!-- Service 11 -->
-                <div class="service-card">
-                    <div class="icon-container">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                    </div>
-                    <h3>Web Presence & Sites</h3>
-                    <p>Criação de websites corporativos modernos, responsivos e otimizados para conversão (SEO), garantindo forte presença digital.</p>
+                <div class="stat">
+                    <span class="stat-value">High</span>
+                    <span class="stat-label">Performance</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Showcase Section -->
-    <section class="tech-showcase" id="sobre">
-        <div class="container">
-            <div class="showcase-flex">
-                <div class="showcase-content">
-                    <h2>A Sinergia <span>Thadeu & Orayon</span></h2>
-                    <p>Unimos a capacidade técnica robusta de engenharia de software da Thadeu Systems com a refinada identidade visual e velocidade operacional inspirada no ecossistema Orayon.</p>
-                    <ul class="spec-list">
-                        <li>Interfaces fluidas baseadas em dark mode premium</li>
-                        <li>Desempenho otimizado para carregamentos em milissegundos</li>
-                        <li>Identidade corporativa futurista que inspira segurança e inovação</li>
-                    </ul>
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-label">O Que Fazemos</span>
+                    <h2>Soluções Integradas de Alta Tecnologia</h2>
+                    <p>Oferecemos um ecossistema completo de serviços para modernizar e proteger a sua infraestrutura tecnológica.</p>
                 </div>
-                <div class="showcase-visual">
-                    <div class="glowing-globe">
-                        <div class="globe-inner"></div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h3>Desenvolvimento de Software</h3>
+                        <p>Aplicações web, sistemas de gestão e plataformas sob medida adaptadas às necessidades do seu negócio.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3>CCTV & Segurança Electrónica</h3>
+                        <p>Instalação e configuração de sistemas de videovigilância IP, câmaras térmicas e controlo de acessos.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                        </div>
+                        <h3>Redes & Telecomunicações</h3>
+                        <p>Implementação de infraestruturas de rede estruturada, VoIP, centralistas telefónicas PBX e links dedicados.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo-link">
-                        <img src="TSlogo.png" alt="Thadeu Systems Logo" class="brand-logo">
-                    </a>
-                    <p>Soluções integradas de engenharia de software, infraestrutura de redes e ecossistemas digitais de alta performance.</p>
+        <!-- PORQUÊ NÓS -->
+        <section id="sobre" class="section why-section">
+            <div class="container why-grid">
+                <div class="why-content">
+                    <span class="section-label">Diferencial</span>
+                    <h2>Engenharia de Precisão e Confiança</h2>
+                    <p>Garantimos a continuidade do seu negócio através de soluções robustas, seguras e escaláveis.</p>
+
+                    <div class="why-features">
+                        <div class="why-feature">
+                            <div class="why-feature-number">01</div>
+                            <h3>Suporte Especializado</h3>
+                            <p>Equipa técnica dedicada ao acompanhamento contínuo.</p>
+                        </div>
+                        <div class="why-feature">
+                            <div class="why-feature-number">02</div>
+                            <h3>Segurança Avançada</h3>
+                            <p>Proteção de dados rigorosa e arquitetura resiliente.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Soluções</h4>
-                    <ul>
-                        <li><a href="#solucoes">Engine Solutions</a></li>
-                        <li><a href="#solucoes">Cyber Security</a></li>
-                        <li><a href="#solucoes">Cloud Architecture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Empresa</h4>
-                    <ul>
-                        <li><a href="#sobre">Inovação</a></li>
-                        <li><a href="#sobre">Sinergia Orayon</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Conectar</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            <a href="mailto:geral@thadeusystems.it.ao">geral@thadeusystems.it.ao</a>
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                            <a href="tel:+244946991049">+244 946 991 049</a>
-                        </li>
-                        <li>
-                            <svg width="16" height="16" fill="none" stroke="var(--neon-blue)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            <span>Luanda, Angola</span>
-                        </li>
-                    </ul>
+
+                <div class="why-visual">
+                    <div class="security-shield"></div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Thadeu Systems. Todos os direitos reservados. Engineered with Precision.</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
+        <!-- CONTACTO -->
+        <section id="contacto" class="section contact-section">
+            <div class="container contact-grid">
+                <div class="contact-info">
+                    <span class="section-label">Fale Connosco</span>
+                    <h2>Pronto para Transformar a sua Empresa?</h2>
+                    <p>Entre em contacto para agendar uma consultoria técnica ou solicitar um orçamento sem compromisso.</p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <h3>Enviar Mensagem</h3>
+                    <p class="form-description">Preencha o formulário abaixo e responderemos brevemente.</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" required placeholder="seu@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Serviço de Interesse</label>
+                        <select id="service">
+                            <option value="software">Desenvolvimento de Software</option>
+                            <option value="cctv">CCTV & Segurança</option>
+                            <option value="redes">Redes & VoIP</option>
+                            <option value="outros">Outros Serviços</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" required placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript Externo -->
+    <script src="script.js"></script>
 </body>
 </html>

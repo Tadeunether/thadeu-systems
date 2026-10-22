@@ -1,1 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Thadeu Systems | Engenharia, Segurança e Soluções Digitais</title>
+
+    <meta name="description" content="Thadeu Systems - Soluções empresariais em desenvolvimento de software, cloud, cibersegurança, CCTV, redes, VoIP e infraestrutura digital em Angola.">
+    <meta name="keywords" content="Thadeu Systems, tecnologia Angola, informática Angola, desenvolvimento software Angola, CCTV Angola, cloud Angola, cibersegurança Angola">
+    <meta name="author" content="Thadeu Systems">
+    <meta name="theme-color" content="#050508">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Thadeu Systems">
+    <meta property="og:description" content="Engenharia, infraestrutura e soluções digitais para empresas que querem crescer com tecnologia.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Folha de Estilos Externa -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Grid e Brilhos -->
+    <div class="grid-background"></div>
+    <div class="glow hero-glow-1"></div>
+    <div class="glow hero-glow-2"></div>
+
+    <!-- Header / Navegação -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <span class="logo-text">THADEU<span class="accent">SYSTEMS</span></span>
+            </a>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-item">Início</a></li>
+                    <li><a href="#servicos" class="nav-item">Serviços</a></li>
+                    <li><a href="#sobre" class="nav-item">Porquê Nós</a></li>
+                    <li><a href="#processo" class="nav-item">Processo</a></li>
+                    <li><a href="#contacto" class="nav-contact">Falar com Especialista</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Secção Hero -->
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Soluções Tecnológicas Avançadas
+                </div>
+                <h1>Avanço Tecnológico & <span class="gradient-text">Infraestrutura Digital</span></h1>
+                <p class="hero-description">
+                    Empoderamos empresas em Angola com desenvolvimento de software por medida, cibersegurança robusta, arquitetura cloud e infraestruturas de rede de alto desempenho.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary">
+                        Iniciar Projeto <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#servicos" class="btn btn-outline">
+                        Explorar Serviços
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item"><i data-lucide="check-circle-2"></i> Suporte 24/7</div>
+                    <div class="trust-item"><i data-lucide="check-circle-2"></i> Alta Disponibilidade</div>
+                    <div class="trust-item"><i data-lucide="check-circle-2"></i> Segurança Avançada</div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="technology-core">
+                    <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+                    <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
+                    <div class="orbit orbit-3"></div>
+                    <div class="core">
+                        <div class="core-content">TS</div>
+                    </div>
+
+                    <div class="floating-card fc-1">
+                        <i data-lucide="shield-check" class="accent"></i> 99.9% Uptime
+                    </div>
+                    <div class="floating-card fc-2">
+                        <i data-lucide="lock" class="accent"></i> Encriptação Dinâmica
+                    </div>
+                    <div class="floating-card fc-3">
+                        <i data-lucide="cpu" class="accent"></i> Cloud Ativa
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estatísticas -->
+    <div class="container stats-wrapper">
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-value">99.9%</span>
+                <span class="stat-label">Disponibilidade dos Sistemas</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">+100</span>
+                <span class="stat-label">Projetos Concluídos</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">24/7</span>
+                <span class="stat-label">Monitorização & Suporte</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">Foco em Segurança</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Secção Serviços -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <span class="section-label">O Que Fazemos</span>
+                <h2>Soluções Integradas de Eleva Classe</h2>
+                <p>Oferecemos um ecossistema completo de tecnologia para impulsionar a eficiência e proteção da sua empresa.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="code"></i></div>
+                    <h3>Desenvolvimento de Software</h3>
+                    <p>Sistemas empresariais, plataformas web, portais e aplicações à medida das necessidades do seu negócio.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="cloud"></i></div>
+                    <h3>Cloud & Servidores</h3>
+                    <p>Migração para a nuvem, gestão de servidores e arquitetura de infraestrutura escalável e segura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="shield-alert"></i></div>
+                    <h3>Cibersegurança</h3>
+                    <p>Auditoria de vulnerabilidades, proteção contra ameaças digitais e políticas de segurança de dados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="camera"></i></div>
+                    <h3>CCTV & Video Vigilância</h3>
+                    <p>Instalação de sistemas de vigilância IP de alta definição com monitorização remota em tempo real.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="network"></i></div>
+                    <h3>Redes & VoIP</h3>
+                    <p>Cabeamento estruturado, redes Wi-Fi empresariais e centrais telefónicas VoIP para comunicação eficiente.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i data-lucide="fingerprint"></i></div>
+                    <h3>Controlo de Acessos</h3>
+                    <p>Sistemas biométricos, cartões de proximidade e controlo de assiduidade para gestão de acessos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção Porquê Nós -->
+    <section id="sobre" class="section why-section">
+        <div class="container why-grid">
+            <div class="why-content">
+                <span class="section-label">Diferencial Thadeu Systems</span>
+                <h2>Engenharia de Precisão para o Seu Sucesso</h2>
+                <p>Combinamos inovação tecnológica com padrões rigorosos de engenharia para entregar soluções duradouras e seguras.</p>
+                
+                <div class="why-features">
+                    <div class="why-feature">
+                        <div class="why-feature-number">01</div>
+                        <h3>Soluções À Medida</h3>
+                        <p>Desenhamos a arquitetura ideal para os objetivos específicos do seu negócio.</p>
+                    </div>
+                    <div class="why-feature">
+                        <div class="why-feature-number">02</div>
+                        <h3>Segurança em Primeiro Lugar</h3>
+                        <p>Implementamos práticas rigorosas de cibersegurança em todas as camadas.</p>
+                    </div>
+                    <div class="why-feature">
+                        <div class="why-feature-number">03</div>
+                        <h3>Suporte Proativo</h3>
+                        <p>Acompanhamento contínuo e resolução proativa de incidentes.</p>
+                    </div>
+                    <div class="why-feature">
+                        <div class="why-feature-number">04</div>
+                        <h3>Escalabilidade Garantida</h3>
+                        <p>Sistemas concebidos para acompanhar o crescimento da sua empresa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-visual">
+                <div class="security-shield"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção Processo -->
+    <section id="processo" class="section">
+        <div class="container">
+            <div class="section-heading">
+                <span class="section-label">Como Trabalhamos</span>
+                <h2>Processo Estruturado de Implementação</h2>
+                <p>Garantimos a entrega rigorosa de projetos através de uma metodologia transparente de 4 etapas.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Análise detalhada das necessidades, levantamento de requisitos e avaliação da infraestrutura existente.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Planeamento</h3>
+                    <p>Desenho da arquitetura da solução, definição de prazos, tecnologias e estratégia de implementação.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Execução</h3>
+                    <p>Desenvolvimento, configuração, testes rigorosos de qualidade e implementação em ambiente de produção.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3>Suporte Contínuo</h3>
+                    <p>Monitorização ativa, manutenção preventiva, atualizações de segurança e assistência técnica contínua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-content">
+                    <h2>Pronto para Transformar a sua Infraestrutura?</h2>
+                    <p>Fale com os nossos especialistas e descubra como a Thadeu Systems pode otimizar a tecnologia e a segurança do seu negócio.</p>
+                    <a href="#contacto" class="btn btn-primary">
+                        Solicitar Proposta <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção Contacto -->
+    <section id="contacto" class="section contact-section">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <span class="section-label">Contacte-nos</span>
+                <h2>Vamos Conversar sobre o seu Projeto</h2>
+                <p>Preencha o formulário ou utilize um dos nossos canais diretos de contacto para agendar uma reunião ou pedir um orçamento.</p>
+
+                <div class="contact-list">
+                    <a href="tel:+244900000000" class="contact-item">
+                        <div class="contact-icon"><i data-lucide="phone"></i></div>
+                        <div>
+                            <small>Ligue para nós</small>
+                            <span>+244 900 000 000</span>
+                        </div>
+                    </a>
+                    <a href="mailto:geral@thadeusystems.co.ao" class="contact-item">
+                        <div class="contact-icon"><i data-lucide="mail"></i></div>
+                        <div>
+                            <small>Envie um e-mail</small>
+                            <span>geral@thadeusystems.co.ao</span>
+                        </div>
+                    </a>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+                        <div>
+                            <small>Localização</small>
+                            <span>Luanda, Angola</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Enviar Mensagem</h3>
+                <p class="form-description">A nossa equipa responderá em menos de 24 horas úteis.</p>
+
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" placeholder="Nome da empresa">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">E-mail Profissional</label>
+                            <input type="email" id="email" required placeholder="exemplo@empresa.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone / WhatsApp</label>
+                            <input type="tel" id="phone" required placeholder="+244 ...">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Serviço de Interesse</label>
+                        <select id="service">
+                            <option value="">Selecione uma opção</option>
+                            <option value="software">Desenvolvimento de Software</option>
+                            <option value="cloud">Cloud & Servidores</option>
+                            <option value="cyber">Cibersegurança</option>
+                            <option value="cctv">CCTV & Segurança Física</option>
+                            <option value="network">Redes & VoIP</option>
+                            <option value="other">Outro Assunto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" required placeholder="Descreva brevemente as necessidades do seu projeto..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit">
+                        Enviar Mensagem <i data-lucide="send"></i>
+                    </button>
+                    <p class="privacy-text">Garantimos a total confidencialidade dos seus dados.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo footer-logo">
+                        <span class="logo-text">THADEU<span class="accent">SYSTEMS</span></span>
+                    </a>
+                    <p>Tecnologia, infraestrutura digital e engenharia de software para empresas com visão de futuro em Angola.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#servicos">Software</a></li>
+                        <li><a href="#servicos">Cloud & Servidores</a></li>
+                        <li><a href="#servicos">Cibersegurança</a></li>
+                        <li><a href="#servicos">CCTV & Redes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#processo">Como Trabalhamos</a></li>
+                        <li><a href="#contacto">Contactos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto Directo</h4>
+                    <ul>
+                        <li><a href="tel:+244900000000">+244 900 000 000</a></li>
+                        <li><a href="mailto:geral@thadeusystems.co.ao">geral@thadeusystems.co.ao</a></li>
+                        <li><a href="#">Luanda, Angola</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thadeu Systems. Todos os direitos reservados.</p>
+                <p>Engenharia e Tecnologia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/244900000000?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Thadeu%20Systems." target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+        <i data-lucide="message-square"></i>
+        <span class="whatsapp-tooltip">Falar no WhatsApp</span>
+    </a>
+
+    <!-- Ficheiro de Script Externo -->
+    <script src="script.js"></script>
+</body>
+</html>

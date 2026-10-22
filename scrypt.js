@@ -1,98 +1,69 @@
-<!-- =========================================================
-     JAVASCRIPT
-========================================================== -->
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicialização dos Ícones Lucide
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 
-<script>
-
-    /* Mobile menu */
-
-    const menuToggle =
-        document.getElementById("menuToggle");
-
-    const navLinks =
-        document.getElementById("navLinks");
-
-    menuToggle.addEventListener(
-        "click",
-        () => {
-            navLinks.classList.toggle("active");
+    // Header fixo com sombra/fundo dinâmico ao fazer scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
-    );
-
-    document.querySelectorAll(
-        ".nav-links a"
-    ).forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-                navLinks.classList.remove("active");
-            }
-        );
-
     });
 
+    // Menu Mobile (Hambúrguer)
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const menuIcon = document.getElementById('menuIcon');
 
-    /* Header effect */
-
-    const header =
-        document.getElementById("header");
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (window.scrollY > 30) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const isActive = navLinks.classList.contains('active');
+            
+            // Alterna o ícone entre menu e fechar (x)
+            if (menuIcon) {
+                menuIcon.setAttribute('data-lucide', isActive ? 'x' : 'menu');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             }
+        });
 
-        }
-    );
+        // Fechar menu ao clicar num item de navegação
+        document.querySelectorAll('.nav-item, .nav-contact').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                if (menuIcon) {
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }
+            });
+        });
+    }
 
+    // Submissão e Validação do Formulário de Contacto
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    /* Reveal animation */
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+            // Feedback visual de envio
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'A enviar... <i data-lucide="loader-2" class="spin"></i>';
+            if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target
-                            .classList
-                            .add("visible");
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-    revealElements.forEach(element => {
-        observer.observe(element);
-    });
-
-
-    /* Dynamic year */
-
-    document.getElementById(
-        "currentYear"
-    ).textContent =
-        new Date().getFullYear();
-
-</script>
+            setTimeout(() => {
+                alert('Obrigado pelo seu contacto! A equipa da Thadeu Systems responderá muito em breve.');
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }, 1200);
+        });
+    }
+});

@@ -1,33 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-<!-- HEADER / NAVBAR -->
-    <header id="header">
-        <!-- Em vez de: -->
-<link rel="stylesheet" href="/style.css">
-
-<!-- Prefira caminho relativo: -->
-<link rel="stylesheet" href="style.css">
-<!-- ou: -->
-<link rel="stylesheet" href="./css/style.css">
-        <div class="container navbar">
-            <a href="#" class="logo">
-                <img src="TSlogo.png" alt="Thadeu Systems - Logótipo" class="logo-img">
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#sobre">Porquê Nós</a></li>
-                <li><a href="#processo">Processo</a></li>
-                <li><a href="#contacto" class="nav-contact">Contactar</a></li>
-            </ul>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-    </header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,218 +24,3047 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS Externo -->
-    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================================================
+           RESET / GLOBAL
+        ========================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        :root {
+            --bg: #050508;
+            --bg-secondary: #080b12;
+            --card: rgba(14, 21, 34, 0.62);
+            --card-hover: rgba(18, 28, 46, 0.86);
+
+            --blue: #0072ff;
+            --blue-light: #00c6ff;
+            --blue-soft: rgba(0, 114, 255, 0.14);
+            --blue-border: rgba(0, 114, 255, 0.22);
+            --blue-glow: rgba(0, 114, 255, 0.35);
+
+            --white: #ffffff;
+            --text: #e9edf5;
+            --secondary: #a0aec0;
+            --muted: #718096;
+
+            --success: #25d366;
+
+            --border: rgba(255,255,255,0.08);
+
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-lg: 24px;
+
+            --container: 1200px;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(0,114,255,.10), transparent 28%),
+                radial-gradient(circle at 90% 35%, rgba(0,198,255,.06), transparent 25%),
+                radial-gradient(circle at 50% 100%, rgba(0,114,255,.05), transparent 35%),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        .container {
+            width: min(90%, var(--container));
+            margin: auto;
+        }
+
+        section {
+            position: relative;
+        }
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .accent {
+            color: var(--blue-light);
+        }
+
+        /* =========================================================
+           BACKGROUND DECORATIONS
+        ========================================================== */
+
+        .grid-background {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.18;
+            z-index: -10;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+
+            background-size: 45px 45px;
+
+            mask-image:
+                linear-gradient(to bottom, black, transparent 85%);
+        }
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--blue);
+            opacity: .08;
+            filter: blur(160px);
+            pointer-events: none;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 1000;
+
+            background: rgba(5,5,8,.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,.055);
+
+            transition: .3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(5,5,8,.92);
+            box-shadow: 0 10px 40px rgba(0,0,0,.25);
+        }
+
+        .navbar {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            height: 48px;
+            width: auto;
+
+            filter:
+                drop-shadow(0 0 12px rgba(0,114,255,.30));
+
+            transition: .3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.03);
+            filter:
+                drop-shadow(0 0 18px rgba(0,114,255,.48));
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: var(--secondary);
+
+            font-size: .93rem;
+            font-weight: 500;
+
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-contact {
+            color: var(--blue-light) !important;
+
+            border: 1px solid rgba(0,114,255,.55);
+            border-radius: 999px;
+
+            padding: 9px 20px;
+
+            font-family: "Orbitron", sans-serif;
+            font-size: .76rem !important;
+            letter-spacing: .8px;
+
+            transition: .3s !important;
+        }
+
+        .nav-contact:hover {
+            background: var(--blue);
+            color: #fff !important;
+
+            box-shadow:
+                0 0 25px rgba(0,114,255,.35);
+        }
+
+        .menu-toggle {
+            display: none;
+
+            width: 45px;
+            height: 45px;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,.03);
+            color: white;
+
+            cursor: pointer;
+        }
+
+        .menu-toggle svg {
+            width: 23px;
+            height: 23px;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 150px 0 90px;
+
+            overflow: hidden;
+        }
+
+        .hero-glow-1 {
+            top: 5%;
+            left: -200px;
+        }
+
+        .hero-glow-2 {
+            right: -180px;
+            bottom: 0;
+
+            background: var(--blue-light);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+            grid-template-columns: 1.12fr .88fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 16px;
+
+            margin-bottom: 25px;
+
+            border-radius: 100px;
+            border: 1px solid rgba(0,198,255,.22);
+
+            background: rgba(0,114,255,.08);
+
+            color: var(--blue-light);
+
+            font-family: "Orbitron", sans-serif;
+            font-size: .70rem;
+            letter-spacing: 1.1px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--blue-light);
+
+            box-shadow:
+                0 0 12px var(--blue-light);
+        }
+
+        .hero h1 {
+            max-width: 760px;
+
+            margin-bottom: 26px;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: clamp(2.65rem, 5.3vw, 5.3rem);
+            font-weight: 900;
+
+            line-height: 1.04;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    120deg,
+                    #00c6ff,
+                    #0072ff 60%,
+                    #6aa8ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 670px;
+
+            color: var(--secondary);
+
+            font-size: 1.08rem;
+            font-weight: 400;
+
+            margin-bottom: 38px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-bottom: 42px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+
+            padding: 0 27px;
+
+            border-radius: 10px;
+            border: none;
+
+            text-decoration: none;
+
+            font-family: "Orbitron", sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .6px;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+        .btn-primary {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--blue-light)
+                );
+
+            box-shadow:
+                0 8px 30px rgba(0,114,255,.27);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 35px rgba(0,114,255,.42);
+        }
+
+        .btn-outline {
+            color: white;
+
+            border: 1px solid var(--border);
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(0,114,255,.55);
+
+            background:
+                rgba(0,114,255,.08);
+
+            color: var(--blue-light);
+
+            transform: translateY(-3px);
+        }
+
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 22px;
+
+            color: var(--muted);
+
+            font-size: .82rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-item svg {
+            color: var(--blue-light);
+        }
+
+        /* Hero visual */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .technology-core {
+            width: min(430px, 85vw);
+            aspect-ratio: 1;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit {
+            position: absolute;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(0,114,255,.20);
+        }
+
+        .orbit-1 {
+            inset: 2%;
+            animation: rotate 24s linear infinite;
+        }
+
+        .orbit-2 {
+            inset: 14%;
+
+            border-style: dashed;
+            border-color: rgba(0,198,255,.27);
+
+            animation: rotateReverse 18s linear infinite;
+        }
+
+        .orbit-3 {
+            inset: 28%;
+
+            border-color: rgba(255,255,255,.10);
+
+            animation: rotate 12s linear infinite;
+        }
+
+        .orbit-dot {
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            background: var(--blue-light);
+
+            border-radius: 50%;
+
+            top: -5px;
+            left: 50%;
+
+            box-shadow:
+                0 0 16px var(--blue-light);
+        }
+
+        .core {
+            width: 155px;
+            height: 155px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 32px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,114,255,.22),
+                    rgba(0,198,255,.06)
+                );
+
+            border:
+                1px solid rgba(0,198,255,.28);
+
+            box-shadow:
+                0 0 70px rgba(0,114,255,.18),
+                inset 0 0 30px rgba(0,114,255,.08);
+
+            backdrop-filter: blur(15px);
+
+            transform: rotate(45deg);
+        }
+
+        .core-content {
+            transform: rotate(-45deg);
+
+            font-family: "Orbitron", sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+
+            color: white;
+        }
+
+        .floating-card {
+            position: absolute;
+
+            padding: 11px 17px;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            background:
+                rgba(8,12,20,.76);
+
+            backdrop-filter: blur(13px);
+
+            color: var(--secondary);
+
+            font-size: .76rem;
+            font-weight: 600;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.25);
+        }
+
+        .fc-1 {
+            left: 0;
+            top: 23%;
+        }
+
+        .fc-2 {
+            right: 0;
+            top: 57%;
+        }
+
+        .fc-3 {
+            left: 13%;
+            bottom: 3%;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateReverse {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        /* =========================================================
+           STATS
+        ========================================================== */
+
+        .stats-wrapper {
+            margin-top: -35px;
+
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background:
+                rgba(10,15,25,.72);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.25);
+        }
+
+        .stat {
+            padding: 30px 25px;
+
+            text-align: center;
+
+            border-right:
+                1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-value {
+            display: block;
+
+            font-family: "Orbitron", sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+
+            color: var(--blue-light);
+
+            margin-bottom: 7px;
+        }
+
+        .stat-label {
+            color: var(--secondary);
+            font-size: .78rem;
+        }
+
+        /* =========================================================
+           SECTION HEADINGS
+        ========================================================== */
+
+        .section-heading {
+            max-width: 700px;
+            margin: 0 auto 65px;
+
+            text-align: center;
+        }
+
+        .section-label {
+            display: block;
+
+            margin-bottom: 14px;
+
+            font-family: "Orbitron", sans-serif;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+
+            color: var(--blue-light);
+
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size:
+                clamp(2rem, 4vw, 3rem);
+
+            line-height: 1.2;
+
+            margin-bottom: 20px;
+        }
+
+        .section-heading p {
+            color: var(--secondary);
+        }
+
+        /* =========================================================
+           SERVICES
+        ========================================================== */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+        .service-card {
+            min-height: 285px;
+
+            padding: 32px;
+
+            position: relative;
+
+            border-radius: var(--radius);
+
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(16,23,38,.60),
+                    rgba(8,12,20,.55)
+                );
+
+            overflow: hidden;
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .service-card::before {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    var(--blue-light),
+                    transparent
+                );
+
+            opacity: 0;
+
+            transition: .35s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(0,114,255,.38);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.20),
+                0 0 25px rgba(0,114,255,.06);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 54px;
+            height: 54px;
+
+            margin-bottom: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            color: var(--blue-light);
+
+            border:
+                1px solid rgba(0,114,255,.25);
+
+            background:
+                rgba(0,114,255,.09);
+        }
+
+        .service-icon svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        .service-card h3 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 1.05rem;
+            font-weight: 700;
+
+            margin-bottom: 14px;
+        }
+
+        .service-card p {
+            color: var(--secondary);
+
+            font-size: .91rem;
+        }
+
+        /* =========================================================
+           WHY US
+        ========================================================== */
+
+        .why-section {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(8,11,18,.4),
+                    rgba(10,15,25,.60),
+                    rgba(8,11,18,.4)
+                );
+
+            border-top: 1px solid rgba(255,255,255,.035);
+            border-bottom: 1px solid rgba(255,255,255,.035);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .why-content .section-label {
+            margin-bottom: 16px;
+        }
+
+        .why-content h2 {
+            font-family: "Orbitron", sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+
+            margin-bottom: 22px;
+        }
+
+        .why-content > p {
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .why-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .why-feature {
+            padding: 24px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background:
+                rgba(255,255,255,.018);
+        }
+
+        .why-feature-number {
+            font-family: "Orbitron", sans-serif;
+            color: var(--blue-light);
+
+            font-size: .75rem;
+            font-weight: 700;
+
+            margin-bottom: 12px;
+        }
+
+        .why-feature h3 {
+            font-size: .96rem;
+            margin-bottom: 8px;
+        }
+
+        .why-feature p {
+            font-size: .82rem;
+            color: var(--muted);
+        }
+
+        .why-visual {
+            min-height: 480px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 30px;
+
+            border: 1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0,114,255,.13),
+                    rgba(0,114,255,.02) 50%,
+                    transparent 70%
+                );
+        }
+
+        .security-shield {
+            width: 190px;
+            height: 230px;
+
+            clip-path:
+                polygon(
+                    50% 0,
+                    92% 18%,
+                    86% 70%,
+                    50% 100%,
+                    14% 70%,
+                    8% 18%
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(0,198,255,.65),
+                    rgba(0,114,255,.25)
+                );
+
+            box-shadow:
+                0 0 80px rgba(0,114,255,.3);
+        }
+
+        .security-shield::after {
+            content: "TS";
+
+            font-family: "Orbitron", sans-serif;
+
+            font-weight: 900;
+            font-size: 2.3rem;
+
+            color: white;
+        }
+
+        /* =========================================================
+           PROCESS
+        ========================================================== */
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            position: relative;
+
+            padding: 30px 26px;
+
+            border-radius: var(--radius);
+
+            border: 1px solid var(--border);
+
+            background:
+                rgba(255,255,255,.018);
+        }
+
+        .process-number {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 24px;
+
+            border-radius: 10px;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-weight: 800;
+
+            background:
+                rgba(0,114,255,.10);
+
+            color: var(--blue-light);
+
+            border:
+                1px solid rgba(0,114,255,.24);
+        }
+
+        .process-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: var(--secondary);
+            font-size: .88rem;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================== */
+
+        .cta-box {
+            padding: 70px 60px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            border:
+                1px solid rgba(0,114,255,.25);
+
+            background:
+                linear-gradient(
+                    130deg,
+                    rgba(0,114,255,.13),
+                    rgba(0,198,255,.035)
+                );
+
+            text-align: center;
+        }
+
+        .cta-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+
+            filter: blur(120px);
+
+            opacity: .15;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%,-50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box h2 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size:
+                clamp(2rem,4vw,3rem);
+
+            margin-bottom: 18px;
+        }
+
+        .cta-box p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+
+            color: var(--secondary);
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================== */
+
+        .contact-section {
+            background:
+                rgba(7,10,16,.65);
+
+            border-top:
+                1px solid rgba(255,255,255,.04);
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns: .85fr 1.15fr;
+
+            gap: 70px;
+        }
+
+        .contact-info h2 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size:
+                clamp(2rem,4vw,2.8rem);
+
+            margin-bottom: 20px;
+        }
+
+        .contact-info > p {
+            color: var(--secondary);
+
+            margin-bottom: 35px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 17px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+
+            text-decoration: none;
+
+            padding: 17px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,.015);
+
+            transition: .3s;
+        }
+
+        .contact-item:hover {
+            border-color:
+                rgba(0,114,255,.35);
+
+            background:
+                rgba(0,114,255,.045);
+        }
+
+        .contact-icon {
+            min-width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            color: var(--blue-light);
+
+            background:
+                rgba(0,114,255,.10);
+
+            border:
+                1px solid rgba(0,114,255,.20);
+        }
+
+        .contact-item small {
+            display: block;
+
+            color: var(--muted);
+
+            margin-bottom: 2px;
+        }
+
+        .contact-item span {
+            color: var(--text);
+
+            font-size: .93rem;
+            font-weight: 600;
+        }
+
+        /* Form */
+
+        .contact-form {
+            padding: 38px;
+
+            border-radius: 20px;
+
+            border: 1px solid var(--border);
+
+            background:
+                rgba(13,19,31,.70);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.20);
+        }
+
+        .contact-form h3 {
+            font-family: "Orbitron", sans-serif;
+
+            margin-bottom: 8px;
+        }
+
+        .form-description {
+            color: var(--muted);
+
+            font-size: .86rem;
+
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 17px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: .81rem;
+
+            color: var(--secondary);
+
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid rgba(255,255,255,.09);
+
+            outline: none;
+
+            background:
+                rgba(4,7,12,.68);
+
+            color: white;
+
+            font-size: .9rem;
+
+            transition: .25s;
+        }
+
+        .form-group textarea {
+            min-height: 145px;
+
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue);
+
+            box-shadow:
+                0 0 0 3px rgba(0,114,255,.08);
+        }
+
+        .form-group select option {
+            background: #080b12;
+        }
+
+        .form-submit {
+            width: 100%;
+        }
+
+        .privacy-text {
+            margin-top: 14px;
+
+            color: var(--muted);
+
+            font-size: .72rem;
+
+            text-align: center;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        footer {
+            padding: 70px 0 28px;
+
+            background: #020204;
+
+            border-top:
+                1px solid rgba(255,255,255,.05);
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.8fr 1fr 1fr 1.3fr;
+
+            gap: 45px;
+
+            margin-bottom: 55px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            max-width: 330px;
+
+            color: var(--muted);
+
+            font-size: .88rem;
+        }
+
+        .footer-col h4 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size: .8rem;
+            letter-spacing: .7px;
+
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+
+            display: grid;
+            gap: 11px;
+        }
+
+        .footer-col a {
+            color: var(--muted);
+
+            text-decoration: none;
+
+            font-size: .87rem;
+
+            transition: .25s;
+        }
+
+        .footer-col a:hover {
+            color: var(--blue-light);
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+
+            border-top:
+                1px solid rgba(255,255,255,.05);
+
+            display: flex;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: var(--muted);
+
+            font-size: .78rem;
+        }
+
+        /* =========================================================
+           WHATSAPP
+        ========================================================== */
+
+        .whatsapp-float {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            color: white;
+
+            text-decoration: none;
+
+            z-index: 999;
+
+            box-shadow:
+                0 8px 30px rgba(37,211,102,.35);
+
+            transition: .3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform:
+                translateY(-5px)
+                scale(1.05);
+
+            box-shadow:
+                0 12px 38px rgba(37,211,102,.48);
+        }
+
+        .whatsapp-float svg {
+            width: 31px;
+            height: 31px;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+
+            right: 76px;
+
+            white-space: nowrap;
+
+            padding: 9px 13px;
+
+            border-radius: 8px;
+
+            color: white;
+
+            background: rgba(9,13,20,.94);
+
+            font-size: .75rem;
+
+            opacity: 0;
+
+            transform: translateX(5px);
+
+            pointer-events: none;
+
+            transition: .25s;
+
+            border: 1px solid var(--border);
+        }
+
+        .whatsapp-float:hover
+        .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(25px);
+
+            transition:
+                opacity .7s ease,
+                transform .7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media (max-width: 1050px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 800px;
+                margin: auto;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions,
+            .hero-trust {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1.4fr 1fr 1fr;
+            }
+
+            .footer-col:last-child {
+                grid-column:
+                    span 3;
+            }
+
+        }
+
+        @media (max-width: 820px) {
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                left: 5%;
+                right: 5%;
+                top: 88px;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 5px;
+
+                padding: 18px;
+
+                border-radius: 15px;
+
+                border: 1px solid var(--border);
+
+                background:
+                    rgba(5,7,12,.97);
+
+                box-shadow:
+                    0 20px 50px rgba(0,0,0,.35);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+
+                padding: 12px 13px;
+
+                text-align: center;
+            }
+
+            .stats {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom:
+                    1px solid var(--border);
+            }
+
+            .process-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .technology-core {
+                width: 300px;
+            }
+
+            .floating-card {
+                font-size: .65rem;
+                padding: 8px 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-features {
+                grid-template-columns: 1fr;
+            }
+
+            .why-visual {
+                min-height: 360px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 26px 20px;
+            }
+
+            .cta-box {
+                padding: 50px 22px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-col:last-child {
+                grid-column: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 57px;
+                height: 57px;
+
+                right: 18px;
+                bottom: 18px;
+            }
+
+            .whatsapp-tooltip {
+                display: none;
+            }
+
+        }
+    </style>
 </head>
+
 <body>
 
-    <div class="grid-background"></div>
+<div class="grid-background"></div>
 
-    <!-- HEADER / NAVBAR -->
-    <header id="header">
-        <div class="container navbar">
-            <a href="#" class="logo">
-                <span class="gradient-text" style="font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.4rem;">THADEU SYSTEMS</span>
+<!-- =========================================================
+     HEADER
+========================================================== -->
+
+<header id="header">
+    <div class="container navbar">
+
+        <a href="#inicio" class="logo">
+            <img
+                src="TSlogo.png"
+                alt="Thadeu Systems"
+                class="brand-logo"
+            >
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Soluções</a></li>
+            <li><a href="#empresa">Empresa</a></li>
+            <li><a href="#processo">Processo</a></li>
+            <li>
+                <a href="#contacto" class="nav-contact">
+                    Falar Connosco
+                </a>
+            </li>
+        </ul>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+        >
+            <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+            >
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+    </div>
+</header>
+
+<!-- =========================================================
+     HERO
+========================================================== -->
+
+<section class="hero" id="inicio">
+
+    <div class="glow hero-glow-1"></div>
+    <div class="glow hero-glow-2"></div>
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                Tecnologia • Infraestrutura • Segurança
+            </div>
+
+            <h1>
+                Tecnologia que transforma
+                <span class="gradient-text">
+                    negócios.
+                </span>
+            </h1>
+
+            <p class="hero-description">
+                Desenvolvemos e implementamos soluções digitais,
+                infraestrutura tecnológica, segurança e comunicação
+                para empresas que procuram eficiência, disponibilidade,
+                controlo e crescimento sustentável.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#contacto" class="btn btn-primary">
+                    Solicitar Proposta
+                    <span>→</span>
+                </a>
+
+                <a
+                    href="https://wa.me/244946991049?text=Olá%20Thadeu%20Systems,%20gostaria%20de%20obter%20mais%20informações%20sobre%20os%20vossos%20serviços."
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline"
+                >
+                    Falar no WhatsApp
+                </a>
+
+            </div>
+
+            <div class="hero-trust">
+
+                <div class="trust-item">
+                    <svg width="16" height="16"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+
+                    Soluções Personalizadas
+                </div>
+
+                <div class="trust-item">
+                    <svg width="16" height="16"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+
+                    Suporte Técnico
+                </div>
+
+                <div class="trust-item">
+                    <svg width="16" height="16"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+
+                    Luanda, Angola
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="technology-core">
+
+                <div class="orbit orbit-1">
+                    <span class="orbit-dot"></span>
+                </div>
+
+                <div class="orbit orbit-2">
+                    <span class="orbit-dot"></span>
+                </div>
+
+                <div class="orbit orbit-3"></div>
+
+                <div class="core">
+                    <div class="core-content">
+                        TS
+                    </div>
+                </div>
+
+                <div class="floating-card fc-1">
+                    CLOUD INFRASTRUCTURE
+                </div>
+
+                <div class="floating-card fc-2">
+                    CYBER SECURITY
+                </div>
+
+                <div class="floating-card fc-3">
+                    SYSTEM ENGINEERING
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     STATS / AREAS
+========================================================== -->
+
+<div class="container stats-wrapper">
+    <div class="stats">
+
+        <div class="stat">
+            <span class="stat-value">Software</span>
+            <span class="stat-label">
+                Sistemas e plataformas
+            </span>
+        </div>
+
+        <div class="stat">
+            <span class="stat-value">Cloud</span>
+            <span class="stat-label">
+                Infraestrutura escalável
+            </span>
+        </div>
+
+        <div class="stat">
+            <span class="stat-value">Security</span>
+            <span class="stat-label">
+                Proteção tecnológica
+            </span>
+        </div>
+
+        <div class="stat">
+            <span class="stat-value">Networks</span>
+            <span class="stat-label">
+                Conectividade empresarial
+            </span>
+        </div>
+
+    </div>
+</div>
+
+<!-- =========================================================
+     SERVICES
+========================================================== -->
+
+<section class="section" id="servicos">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="section-label">
+                Thadeu Systems Solutions
+            </span>
+
+            <h2>
+                Tecnologia integrada para
+                <span class="accent">o seu negócio</span>
+            </h2>
+
+            <p>
+                Do desenvolvimento de software à infraestrutura física
+                e cloud, criamos soluções tecnológicas integradas
+                adaptadas às necessidades de cada organização.
+            </p>
+
+        </div>
+
+        <div class="services-grid">
+
+            <!-- 01 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+
+                <h3>
+                    Software & Sistemas
+                </h3>
+
+                <p>
+                    Desenvolvimento de aplicações, sistemas empresariais,
+                    integrações e plataformas digitais adaptadas aos
+                    processos da sua organização.
+                </p>
+
+            </article>
+
+            <!-- 02 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                </div>
+
+                <h3>
+                    Cloud & Servidores
+                </h3>
+
+                <p>
+                    Implementação, migração e gestão de ambientes cloud,
+                    servidores, backups e serviços com foco em
+                    disponibilidade e continuidade operacional.
+                </p>
+
+            </article>
+
+            <!-- 03 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+
+                <h3>
+                    Cyber Security
+                </h3>
+
+                <p>
+                    Proteção de sistemas, redes e dados empresariais
+                    através de práticas de segurança, controlo,
+                    monitorização e gestão de acessos.
+                </p>
+
+            </article>
+
+            <!-- 04 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+
+                <h3>
+                    CCTV & Videovigilância
+                </h3>
+
+                <p>
+                    Planeamento e implementação de sistemas CCTV IP,
+                    gravação, monitorização remota e infraestrutura
+                    de videovigilância.
+                </p>
+
+            </article>
+
+            <!-- 05 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                        19.79 19.79 0 0 1-8.63-3.07
+                        19.5 19.5 0 0 1-6-6
+                        19.79 19.79 0 0 1-3.07-8.67
+                        A2 2 0 0 1 4.11 2h3
+                        a2 2 0 0 1 2 1.72
+                        12.84 12.84 0 0 0 .7 2.81
+                        2 2 0 0 1-.45 2.11
+                        L8.09 9.91a16 16 0 0 0 6 6
+                        l1.27-1.27a2 2 0 0 1 2.11-.45
+                        12.84 12.84 0 0 0 2.81.7
+                        A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+
+                <h3>
+                    VoIP & Telefonia IP
+                </h3>
+
+                <p>
+                    Centrais telefónicas IP, extensões, comunicação
+                    empresarial e soluções VoIP para melhorar a
+                    colaboração interna e externa.
+                </p>
+
+            </article>
+
+            <!-- 06 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <path d="M12 11c0 3.5-1 6.8-2.7 9.6"></path>
+                        <path d="M6 18a10 10 0 1 1 12.5-6.3"></path>
+                        <path d="M12 2a10 10 0 0 1 9.4 6.5"></path>
+                    </svg>
+                </div>
+
+                <h3>
+                    Controlo de Acessos
+                </h3>
+
+                <p>
+                    Soluções de biometria, reconhecimento facial,
+                    controlo de acessos e integração com sistemas
+                    de assiduidade.
+                </p>
+
+            </article>
+
+            <!-- 07 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15 15 0 0 1 4 10
+                                 15 15 0 0 1-4 10
+                                 15 15 0 0 1-4-10
+                                 15 15 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+
+                <h3>
+                    Domínios & DNS
+                </h3>
+
+                <p>
+                    Registo e gestão de domínios, configuração DNS,
+                    MX, SPF, DKIM, DMARC e outros serviços essenciais
+                    à infraestrutura digital empresarial.
+                </p>
+
+            </article>
+
+            <!-- 08 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <rect x="3" y="5"
+                              width="18"
+                              height="14"
+                              rx="2"></rect>
+                        <polyline points="3 7 12 13 21 7"></polyline>
+                    </svg>
+                </div>
+
+                <h3>
+                    Email Corporativo
+                </h3>
+
+                <p>
+                    Implementação de emails profissionais associados
+                    ao domínio da empresa, autenticação, segurança
+                    e configuração em múltiplos dispositivos.
+                </p>
+
+            </article>
+
+            <!-- 09 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <svg fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         viewBox="0 0 24 24">
+                        <rect x="2" y="3"
+                              width="20"
+                              height="14"
+                              rx="2"></rect>
+                        <line x1="8" y1="21"
+                              x2="16" y2="21"></line>
+                        <line x1="12" y1="17"
+                              x2="12" y2="21"></line>
+                    </svg>
+                </div>
+
+                <h3>
+                    Websites & Presença Digital
+                </h3>
+
+                <p>
+                    Websites corporativos modernos, responsivos,
+                    rápidos e preparados para representar
+                    profissionalmente a sua empresa no ambiente digital.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     WHY THADEU
+========================================================== -->
+
+<section
+    class="section why-section"
+    id="empresa"
+>
+
+    <div class="container why-grid">
+
+        <div class="why-content reveal">
+
+            <span class="section-label">
+                Engenharia & Estratégia
+            </span>
+
+            <h2>
+                Mais do que tecnologia.
+                <span class="accent">
+                    Soluções com propósito.
+                </span>
+            </h2>
+
+            <p>
+                Na Thadeu Systems analisamos cada ambiente antes de
+                implementar tecnologia. O objetivo é criar soluções
+                alinhadas aos processos, desafios e objetivos
+                operacionais de cada cliente.
+            </p>
+
+            <a
+                href="#contacto"
+                class="btn btn-primary"
+            >
+                Falar com a nossa equipa
+                <span>→</span>
             </a>
 
-            <ul class="nav-links">
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#sobre">Porquê Nós</a></li>
-                <li><a href="#processo">Processo</a></li>
-                <li><a href="#contacto" class="nav-contact">Contactar</a></li>
-            </ul>
+        </div>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+        <div class="why-features">
+
+            <div class="why-feature reveal">
+                <div class="why-feature-number">01</div>
+                <h3>Diagnóstico Técnico</h3>
+                <p>
+                    Analisamos necessidades, infraestrutura
+                    e objetivos antes da implementação.
+                </p>
+            </div>
+
+            <div class="why-feature reveal">
+                <div class="why-feature-number">02</div>
+                <h3>Solução Integrada</h3>
+                <p>
+                    Hardware, software, cloud e segurança
+                    pensados como um único ecossistema.
+                </p>
+            </div>
+
+            <div class="why-feature reveal">
+                <div class="why-feature-number">03</div>
+                <h3>Escalabilidade</h3>
+                <p>
+                    Projetamos soluções preparadas para
+                    acompanhar o crescimento da organização.
+                </p>
+            </div>
+
+            <div class="why-feature reveal">
+                <div class="why-feature-number">04</div>
+                <h3>Suporte</h3>
+                <p>
+                    Acompanhamento técnico durante
+                    implementação e operação.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     PROCESS
+========================================================== -->
+
+<section class="section" id="processo">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="section-label">
+                Como Trabalhamos
+            </span>
+
+            <h2>
+                Da necessidade à
+                <span class="accent">
+                    implementação
+                </span>
+            </h2>
+
+            <p>
+                Uma metodologia clara para reduzir riscos,
+                definir prioridades e entregar soluções
+                alinhadas ao negócio.
+            </p>
+
+        </div>
+
+        <div class="process-grid">
+
+            <article class="process-card reveal">
+                <div class="process-number">01</div>
+                <h3>Diagnóstico</h3>
+                <p>
+                    Compreendemos o problema, infraestrutura
+                    existente e objetivos do projeto.
+                </p>
+            </article>
+
+            <article class="process-card reveal">
+                <div class="process-number">02</div>
+                <h3>Planeamento</h3>
+                <p>
+                    Definimos arquitetura, tecnologias,
+                    escopo e estratégia de implementação.
+                </p>
+            </article>
+
+            <article class="process-card reveal">
+                <div class="process-number">03</div>
+                <h3>Implementação</h3>
+                <p>
+                    Executamos a solução de acordo
+                    com os requisitos técnicos definidos.
+                </p>
+            </article>
+
+            <article class="process-card reveal">
+                <div class="process-number">04</div>
+                <h3>Suporte</h3>
+                <p>
+                    Acompanhamos a operação,
+                    manutenção e evolução da solução.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     CTA
+========================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <div class="cta-content">
+
+                <span class="section-label">
+                    Vamos construir?
+                </span>
+
+                <h2>
+                    Tem um projeto tecnológico?
+                </h2>
+
+                <p>
+                    Conte-nos o desafio da sua organização.
+                    A Thadeu Systems pode ajudar a transformar
+                    a necessidade numa solução tecnológica
+                    estruturada.
+                </p>
+
+                <a
+                    href="#contacto"
+                    class="btn btn-primary"
+                >
+                    Solicitar Proposta
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     CONTACT
+========================================================== -->
+
+<section
+    class="section contact-section"
+    id="contacto"
+>
+
+    <div class="container contact-grid">
+
+        <div class="contact-info reveal">
+
+            <span class="section-label">
+                Contacto
+            </span>
+
+            <h2>
+                Vamos conversar sobre
+                <span class="accent">
+                    o seu projeto.
+                </span>
+            </h2>
+
+            <p>
+                Entre em contacto connosco por email,
+                telefone ou WhatsApp, ou utilize o formulário
+                para nos enviar os detalhes do projeto.
+            </p>
+
+            <div class="contact-list">
+
+                <a
+                    href="mailto:geral@thadeusystems.it.ao"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+                        <small>Email</small>
+                        <span>
+                            geral@thadeusystems.it.ao
+                        </span>
+                    </div>
+
+                </a>
+
+                <a
+                    href="tel:+244946991049"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+                        <small>Telefone</small>
+                        <span>
+                            +244 946 991 049
+                        </span>
+                    </div>
+
+                </a>
+
+                <a
+                    href="https://wa.me/244946991049"
+                    target="_blank"
+                    rel="noopener"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <small>WhatsApp</small>
+                        <span>
+                            Iniciar conversa
+                        </span>
+                    </div>
+
+                </a>
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ⌖
+                    </div>
+
+                    <div>
+                        <small>Localização</small>
+                        <span>
+                            Luanda, Angola
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- =====================================================
+             CONTACT FORM
+        ====================================================== -->
+
+        <form
+            class="contact-form reveal"
+            action="https://formsubmit.co/geral@thadeusystems.it.ao"
+            method="POST"
+        >
+
+            <h3>
+                Solicitar contacto
+            </h3>
+
+            <p class="form-description">
+                Preencha os dados abaixo e descreva brevemente
+                o que necessita.
+            </p>
+
+            <!-- FormSubmit settings -->
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="Novo contacto - Website Thadeu Systems"
+            >
+
+            <input
+                type="hidden"
+                name="_template"
+                value="table"
+            >
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            >
+
+            <!-- Honeypot anti-spam -->
+
+            <input
+                type="text"
+                name="_honey"
+                style="display:none"
+            >
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="nome">
+                        Nome *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="Nome"
+                        placeholder="Seu nome"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="empresa">
+                        Empresa
+                    </label>
+
+                    <input
+                        type="text"
+                        id="empresa"
+                        name="Empresa"
+                        placeholder="Nome da empresa"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="Email"
+                        placeholder="email@empresa.com"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="telefone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="Telefone"
+                        placeholder="+244 ..."
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="servico">
+                    Serviço pretendido
+                </label>
+
+                <select
+                    id="servico"
+                    name="Servico"
+                >
+
+                    <option value="">
+                        Selecione uma opção
+                    </option>
+
+                    <option>
+                        Desenvolvimento de Software
+                    </option>
+
+                    <option>
+                        Cloud & Servidores
+                    </option>
+
+                    <option>
+                        Cyber Security
+                    </option>
+
+                    <option>
+                        CCTV & Videovigilância
+                    </option>
+
+                    <option>
+                        VoIP & Telefonia
+                    </option>
+
+                    <option>
+                        Controlo de Acessos
+                    </option>
+
+                    <option>
+                        Domínios / DNS
+                    </option>
+
+                    <option>
+                        Email Corporativo
+                    </option>
+
+                    <option>
+                        Website
+                    </option>
+
+                    <option>
+                        Consultoria de TI
+                    </option>
+
+                    <option>
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="mensagem">
+                    Fale-nos sobre o projeto *
+                </label>
+
+                <textarea
+                    id="mensagem"
+                    name="Mensagem"
+                    placeholder="Descreva brevemente o que necessita..."
+                    required
+                ></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary form-submit"
+            >
+                Enviar Solicitação
+                <span>→</span>
             </button>
+
+            <p class="privacy-text">
+                Ao enviar o formulário, autoriza a Thadeu Systems
+                a utilizar estes dados exclusivamente para responder
+                ao seu pedido.
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+
+                    <img
+                        src="TSlogo.png"
+                        alt="Thadeu Systems"
+                        class="brand-logo"
+                    >
+
+                </div>
+
+                <p>
+                    Engenharia de software, infraestrutura,
+                    cloud, segurança e soluções digitais
+                    para organizações modernas.
+                </p>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>Soluções</h4>
+
+                <ul>
+                    <li>
+                        <a href="#servicos">
+                            Software
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Cloud
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Cyber Security
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            CCTV
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>Empresa</h4>
+
+                <ul>
+                    <li>
+                        <a href="#empresa">
+                            Sobre
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#processo">
+                            Como trabalhamos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="footer-col">
+
+                <h4>Contactos</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="mailto:geral@thadeusystems.it.ao">
+                            geral@thadeusystems.it.ao
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tel:+244946991049">
+                            +244 946 991 049
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://wa.me/244946991049"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            WhatsApp
+                        </a>
+                    </li>
+
+                    <li>
+                        Luanda, Angola
+                    </li>
+
+                </ul>
+
+            </div>
+
         </div>
-    </header>
 
-    <main>
-        <!-- HERO SECTION -->
-        <section class="hero">
-            <div class="glow hero-glow-1"></div>
-            <div class="glow hero-glow-2"></div>
+        <div class="footer-bottom">
 
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="status-dot"></span>
-                        Soluções de Tecnologia & Infraestrutura
-                    </div>
-                    <h1>Inovação Digital & <span class="gradient-text">Segurança</span> para a sua Empresa</h1>
-                    <p class="hero-description">
-                        Transformamos organizações através de desenvolvimento de software, infraestruturas de rede robustas, cibersegurança e sistemas de vigilância avançados em Angola.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#contacto" class="btn btn-primary">Solicitar Proposta</a>
-                        <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
-                    </div>
-                    <div class="hero-trust">
-                        <div class="trust-item">
-                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Disponibilidade 24/7
-                        </div>
-                        <div class="trust-item">
-                            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Suporte Especializado
-                        </div>
-                    </div>
-                </div>
+            <span>
+                © <span id="currentYear"></span>
+                Thadeu Systems. Todos os direitos reservados.
+            </span>
 
-                <div class="hero-visual">
-                    <div class="technology-core">
-                        <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
-                        <div class="orbit orbit-2"></div>
-                        <div class="orbit orbit-3"></div>
-                        <div class="core">
-                            <span class="core-content">TS</span>
-                        </div>
-                    </div>
-                    <div class="floating-card fc-1">Cybersecurity</div>
-                    <div class="floating-card fc-2">Cloud & Networks</div>
-                    <div class="floating-card fc-3">Software Dev</div>
-                </div>
-            </div>
-        </section>
+            <span>
+                Engineered with Precision.
+            </span>
 
-        <!-- STATS -->
-        <div class="container stats-wrapper">
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-value">100%</span>
-                    <span class="stat-label">Compromisso</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">24/7</span>
-                    <span class="stat-label">Monitoramento</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">+10</span>
-                    <span class="stat-label">Áreas de Atuação</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">High</span>
-                    <span class="stat-label">Performance</span>
-                </div>
-            </div>
         </div>
 
-        <!-- SERVIÇOS -->
-        <section id="servicos" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-label">O Que Fazemos</span>
-                    <h2>Soluções Integradas de Alta Tecnologia</h2>
-                    <p>Oferecemos um ecossistema completo de serviços para modernizar e proteger a sua infraestrutura tecnológica.</p>
-                </div>
+    </div>
 
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <h3>Desenvolvimento de Software</h3>
-                        <p>Aplicações web, sistemas de gestão e plataformas sob medida adaptadas às necessidades do seu negócio.</p>
-                    </div>
+</footer>
 
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <h3>CCTV & Segurança Electrónica</h3>
-                        <p>Instalação e configuração de sistemas de videovigilância IP, câmaras térmicas e controlo de acessos.</p>
-                    </div>
+<!-- =========================================================
+     WHATSAPP FLOAT
+========================================================== -->
 
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
-                        </div>
-                        <h3>Redes & Telecomunicações</h3>
-                        <p>Implementação de infraestruturas de rede estruturada, VoIP, centralistas telefónicas PBX e links dedicados.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<a
+    href="https://wa.me/244946991049?text=Olá%20Thadeu%20Systems,%20gostaria%20de%20obter%20informações%20sobre%20os%20vossos%20serviços."
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-float"
+    aria-label="Contactar Thadeu Systems no WhatsApp"
+>
 
-        <!-- PORQUÊ NÓS -->
-        <section id="sobre" class="section why-section">
-            <div class="container why-grid">
-                <div class="why-content">
-                    <span class="section-label">Diferencial</span>
-                    <h2>Engenharia de Precisão e Confiança</h2>
-                    <p>Garantimos a continuidade do seu negócio através de soluções robustas, seguras e escaláveis.</p>
+    <span class="whatsapp-tooltip">
+        Fale connosco no WhatsApp
+    </span>
 
-                    <div class="why-features">
-                        <div class="why-feature">
-                            <div class="why-feature-number">01</div>
-                            <h3>Suporte Especializado</h3>
-                            <p>Equipa técnica dedicada ao acompanhamento contínuo.</p>
-                        </div>
-                        <div class="why-feature">
-                            <div class="why-feature-number">02</div>
-                            <h3>Segurança Avançada</h3>
-                            <p>Proteção de dados rigorosa e arquitetura resiliente.</p>
-                        </div>
-                    </div>
-                </div>
+    <svg
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        aria-hidden="true"
+    >
+        <path d="M19.11 17.21c-.27-.14-1.6-.79-1.85-.88
+        -.25-.09-.43-.14-.61.14-.18.27-.7.88-.86
+        1.06-.16.18-.32.2-.59.07-.27-.14-1.15
+        -.42-2.19-1.35-.81-.72-1.36-1.61-1.52
+        -1.88-.16-.27-.02-.42.12-.55.12-.12
+        .27-.32.41-.48.14-.16.18-.27.27-.45
+        .09-.18.05-.34-.02-.48-.07-.14-.61
+        -1.47-.84-2.01-.22-.52-.44-.45-.61
+        -.46h-.52c-.18 0-.48.07-.72.34-.25.27
+        -.95.93-.95 2.26 0 1.33.97 2.62
+        1.1 2.8.14.18 1.91 2.91 4.62 4.08
+        .65.28 1.15.45 1.54.57.65.21 1.24
+        .18 1.71.11.52-.08 1.6-.65 1.83
+        -1.28.23-.63.23-1.17.16-1.28
+        -.07-.11-.25-.18-.52-.32z"/>
 
-                <div class="why-visual">
-                    <div class="security-shield"></div>
-                </div>
-            </div>
-        </section>
+        <path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96
+        c0 2.1.55 4.16 1.59 5.97L4 27l6.22-1.63
+        a11.93 11.93 0 0 0 5.82 1.49h.01c6.6
+        0 11.96-5.36 11.96-11.96S22.65 3
+        16.04 3zm0 21.84h-.01c-1.79 0-3.55
+        -.48-5.08-1.39l-.36-.21-3.69.97.98
+        -3.59-.23-.37a9.91 9.91 0 0 1-1.52
+        -5.29c0-5.48 4.46-9.93 9.94-9.93
+        2.65 0 5.15 1.03 7.02 2.91A9.87
+        9.87 0 0 1 26 14.96c0 5.48-4.46
+        9.88-9.96 9.88z"/>
+    </svg>
 
-        <!-- CONTACTO -->
-        <section id="contacto" class="section contact-section">
-            <div class="container contact-grid">
-                <div class="contact-info">
-                    <span class="section-label">Fale Connosco</span>
-                    <h2>Pronto para Transformar a sua Empresa?</h2>
-                    <p>Entre em contacto para agendar uma consultoria técnica ou solicitar um orçamento sem compromisso.</p>
-                </div>
+</a>
 
-                <form class="contact-form" id="contactForm">
-                    <h3>Enviar Mensagem</h3>
-                    <p class="form-description">Preencha o formulário abaixo e responderemos brevemente.</p>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" required placeholder="Seu nome">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" required placeholder="seu@email.com">
-                        </div>
-                    </div>
+<script>
 
-                    <div class="form-group">
-                        <label for="service">Serviço de Interesse</label>
-                        <select id="service">
-                            <option value="software">Desenvolvimento de Software</option>
-                            <option value="cctv">CCTV & Segurança</option>
-                            <option value="redes">Redes & VoIP</option>
-                            <option value="outros">Outros Serviços</option>
-                        </select>
-                    </div>
+    /* Mobile menu */
 
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" required placeholder="Como podemos ajudar?"></textarea>
-                    </div>
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensagem</button>
-                </form>
-            </div>
-        </section>
-    </main>
+    const navLinks =
+        document.getElementById("navLinks");
 
-    <!-- JavaScript Externo -->
-    <script src="script.js"></script>
+    menuToggle.addEventListener(
+        "click",
+        () => {
+            navLinks.classList.toggle("active");
+        }
+    );
+
+    document.querySelectorAll(
+        ".nav-links a"
+    ).forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+                navLinks.classList.remove("active");
+            }
+        );
+
+    });
+
+
+    /* Header effect */
+
+    const header =
+        document.getElementById("header");
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (window.scrollY > 30) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        }
+    );
+
+
+    /* Reveal animation */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+
+
+    /* Dynamic year */
+
+    document.getElementById(
+        "currentYear"
+    ).textContent =
+        new Date().getFullYear();
+
+</script>
+
 </body>
 </html>

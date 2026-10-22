@@ -1,43 +1,98 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Efeito de Scroll no Header
-    const header = document.getElementById("header");
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
+<script>
+
+    /* Mobile menu */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+            navLinks.classList.toggle("active");
         }
+    );
+
+    document.querySelectorAll(
+        ".nav-links a"
+    ).forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+                navLinks.classList.remove("active");
+            }
+        );
+
     });
 
-    // 2. Menu Mobile Toggle (Expansão futura)
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.querySelector(".nav-links");
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
-    }
+    /* Header effect */
 
-    // 3. Controlo do Formulário de Contacto
-    const contactForm = document.getElementById("contactForm");
+    const header =
+        document.getElementById("header");
 
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
+    window.addEventListener(
+        "scroll",
+        () => {
 
-            // Captura dos dados
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const service = document.getElementById("service").value;
-            const message = document.getElementById("message").value;
+            if (window.scrollY > 30) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
 
-            // Alerta temporário / Feedback
-            alert(`Obrigado pelo contacto, ${name}! Recebemos a sua mensagem sobre "${service}" e responderemos em breve.`);
+        }
+    );
 
-            // Limpa o formulário
-            contactForm.reset();
-        });
-    }
-});
+
+    /* Reveal animation */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target
+                            .classList
+                            .add("visible");
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+
+
+    /* Dynamic year */
+
+    document.getElementById(
+        "currentYear"
+    ).textContent =
+        new Date().getFullYear();
+
+</script>
